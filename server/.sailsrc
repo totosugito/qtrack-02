@@ -1,0 +1,12 @@
+{
+    "generators": {
+        "modules": {}
+    },
+    "paths": {
+        "public": "assets"
+    },
+    "_generatedWith": {
+        "sails": "1.5.7",
+        "sails-generate": "2.0.9"
+    }
+}
