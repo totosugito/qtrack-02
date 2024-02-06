@@ -1,8 +1,10 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import omit from 'lodash/omit';
-import { push } from '../lib/redux-router';
+//
+//
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import omit from 'lodash/omit'
 
+import { push } from '../lib/redux-router';
 import selectors from '../selectors';
 import entryActions from '../entry-actions';
 import Paths from '../constants/Paths';
@@ -10,67 +12,69 @@ import { BoardMembershipRoles } from '../constants/Enums';
 import CardModal from '../components/CardModal';
 
 const mapStateToProps = (state) => {
-  const { projectId } = selectors.selectPath(state);
-  const allProjectsToLists = selectors.selectProjectsToListsForCurrentUser(state);
-  const isCurrentUserManager = selectors.selectIsCurrentUserManagerForCurrentProject(state);
-  const allBoardMemberships = selectors.selectMembershipsForCurrentBoard(state);
-  const allLabels = selectors.selectLabelsForCurrentBoard(state);
-  const currentUserMembership = selectors.selectCurrentUserMembershipForCurrentBoard(state);
+    const { projectId } = selectors.selectPath(state);
+    const allProjectsToLists = selectors.selectProjectsToListsForCurrentUser(state);
+    const isCurrentUserManager = selectors.selectIsCurrentUserManagerForCurrentProject(state);
+    const allBoardMemberships = selectors.selectMembershipsForCurrentBoard(state);
+    const allLabels = selectors.selectLabelsForCurrentBoard(state);
+    const currentUserMembership = selectors.selectCurrentUserMembershipForCurrentBoard(state);
 
-  const {
-    name,
-    description,
-    dueDate,
-    stopwatch,
-    isSubscribed,
-    isActivitiesFetching,
-    isAllActivitiesFetched,
-    isActivitiesDetailsVisible,
-    isActivitiesDetailsFetching,
-    boardId,
-    listId,
-  } = selectors.selectCurrentCard(state);
+    const {
+        name,
+        description,
+        startDate,
+        dueDate,
+        stopwatch,
+        isSubscribed,
+        isActivitiesFetching,
+        isAllActivitiesFetched,
+        isActivitiesDetailsVisible,
+        isActivitiesDetailsFetching,
+        boardId,
+        listId,
+    } = selectors.selectCurrentCard(state);
 
-  const users = selectors.selectUsersForCurrentCard(state);
-  const labels = selectors.selectLabelsForCurrentCard(state);
-  const tasks = selectors.selectTasksForCurrentCard(state);
-  const attachments = selectors.selectAttachmentsForCurrentCard(state);
-  const activities = selectors.selectActivitiesForCurrentCard(state);
+    const users = selectors.selectUsersForCurrentCard(state);
+    const labels = selectors.selectLabelsForCurrentCard(state);
+    const tasks = selectors.selectTasksForCurrentCard(state);
+    const attachments = selectors.selectAttachmentsForCurrentCard(state);
+    const activities = selectors.selectActivitiesForCurrentCard(state);
 
-  let isCurrentUserEditor = false;
-  let isCurrentUserEditorOrCanComment = false;
+    let isCurrentUserEditor = false;
+    let isCurrentUserEditorOrCanComment = false;
 
-  if (currentUserMembership) {
-    isCurrentUserEditor = currentUserMembership.role === BoardMembershipRoles.EDITOR;
-    isCurrentUserEditorOrCanComment = isCurrentUserEditor || currentUserMembership.canComment;
-  }
+    if (currentUserMembership) {
+        isCurrentUserEditor = currentUserMembership.role === BoardMembershipRoles.EDITOR;
+        isCurrentUserEditorOrCanComment = isCurrentUserEditor || currentUserMembership.canComment;
+    }
 
-  return {
-    name,
-    description,
-    dueDate,
-    stopwatch,
-    isSubscribed,
-    isActivitiesFetching,
-    isAllActivitiesFetched,
-    isActivitiesDetailsVisible,
-    isActivitiesDetailsFetching,
-    listId,
-    boardId,
-    projectId,
-    users,
-    labels,
-    tasks,
-    attachments,
-    activities,
-    allProjectsToLists,
-    allBoardMemberships,
-    allLabels,
-    canEdit: isCurrentUserEditor,
-    canEditCommentActivities: isCurrentUserEditorOrCanComment,
-    canEditAllCommentActivities: isCurrentUserManager,
-  };
-};
+    return {
+        name,
+        description,
+        startDate,
+        dueDate,
+        stopwatch,
+        isSubscribed,
+        isActivitiesFetching,
+        isAllActivitiesFetched,
+        isActivitiesDetailsVisible,
+        isActivitiesDetailsFetching,
+        listId,
+        boardId,
+        projectId,
+        users,
+        labels,
+        tasks,
+        attachments,
+        activities,
+        allProjectsToLists,
+        allBoardMemberships,
+        allLabels,
+        canEdit: isCurrentUserEditor,
+        canEditCommentActivities: isCurrentUserEditorOrCanComment,
+        canEditAllCommentActivities: isCurrentUserManager,
+    }
+}
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -106,9 +110,9 @@ const mapDispatchToProps = (dispatch) =>
   );
 
 const mergeProps = (stateProps, dispatchProps) => ({
-  ...stateProps,
-  ...omit(dispatchProps, 'push'),
-  onClose: () => dispatchProps.push(Paths.BOARDS.replace(':id', stateProps.boardId)),
+    ...stateProps,
+    ...omit(dispatchProps, 'push'),
+    onClose: () => dispatchProps.push(Paths.BOARDS.replace(':id', stateProps.boardId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(CardModal);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(CardModal)

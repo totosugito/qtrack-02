@@ -55,6 +55,10 @@ module.exports = {
             isNotEmptyString: true,
             allowNull: true,
         },
+        startDate: {
+            type: 'string',
+            custom: dueDateValidator,
+        },
         dueDate: {
             type: 'string',
             custom: dueDateValidator,
@@ -98,7 +102,7 @@ module.exports = {
             throw Errors.NOT_ENOUGH_RIGHTS;
         }
 
-        const values = _.pick(inputs, ['position', 'name', 'description', 'dueDate', 'stopwatch']);
+        const values = _.pick(inputs, ['position', 'name', 'description', 'startDate', 'dueDate', 'stopwatch']);
 
         const card = await sails.helpers.cards.createOne
         .with({

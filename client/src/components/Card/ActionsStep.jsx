@@ -16,13 +16,14 @@ import DeleteStep from '../DeleteStep';
 import styles from './ActionsStep.module.scss';
 
 const StepTypes = {
-  USERS: 'USERS',
-  LABELS: 'LABELS',
-  EDIT_DUE_DATE: 'EDIT_DUE_DATE',
-  EDIT_STOPWATCH: 'EDIT_STOPWATCH',
-  MOVE: 'MOVE',
-  DELETE: 'DELETE',
-};
+    USERS: 'USERS',
+    LABELS: 'LABELS',
+    EDIT_START_DATE: 'EDIT_START_DATE',
+    EDIT_DUE_DATE: 'EDIT_DUE_DATE',
+    EDIT_STOPWATCH: 'EDIT_STOPWATCH',
+    MOVE: 'MOVE',
+    DELETE: 'DELETE',
+}
 
 const ActionsStep = React.memo(
   ({
@@ -64,6 +65,10 @@ const ActionsStep = React.memo(
       openStep(StepTypes.LABELS);
     }, [openStep]);
 
+    const handleEditStartDateClick = useCallback(() => {
+        openStep(StepTypes.EDIT_START_DATE);
+        }, [openStep]);
+
     const handleEditDueDateClick = useCallback(() => {
       openStep(StepTypes.EDIT_DUE_DATE);
     }, [openStep]);
@@ -80,6 +85,14 @@ const ActionsStep = React.memo(
       openStep(StepTypes.DELETE);
     }, [openStep]);
 
+      const handleStartDateUpdate = useCallback(
+          (startDate) => {
+              onUpdate({
+                  startDate,
+              });
+          },
+          [onUpdate],
+      );
     const handleDueDateUpdate = useCallback(
       (dueDate) => {
         onUpdate({
@@ -124,6 +137,15 @@ const ActionsStep = React.memo(
               onBack={handleBack}
             />
           );
+          case StepTypes.EDIT_START_DATE:
+              return (
+                  <DueDateEditStep
+                      defaultValue={card.startDate}
+                      onUpdate={handleStartDateUpdate}
+                      onBack={handleBack}
+                      onClose={onClose}
+                  />
+              );
         case StepTypes.EDIT_DUE_DATE:
           return (
             <DueDateEditStep
@@ -192,6 +214,11 @@ const ActionsStep = React.memo(
                 context: 'title',
               })}
             </Menu.Item>
+              <Menu.Item className={styles.menuItem} onClick={handleEditStartDateClick}>
+                  {t('action.editStartDate', {
+                      context: 'title',
+                  })}
+              </Menu.Item>
             <Menu.Item className={styles.menuItem} onClick={handleEditDueDateClick}>
               {t('action.editDueDate', {
                 context: 'title',
@@ -220,29 +247,29 @@ const ActionsStep = React.memo(
 );
 
 ActionsStep.propTypes = {
-  /* eslint-disable react/forbid-prop-types */
-  card: PropTypes.object.isRequired,
-  projectsToLists: PropTypes.array.isRequired,
-  boardMemberships: PropTypes.array.isRequired,
-  currentUserIds: PropTypes.array.isRequired,
-  labels: PropTypes.array.isRequired,
-  currentLabelIds: PropTypes.array.isRequired,
-  /* eslint-enable react/forbid-prop-types */
-  onNameEdit: PropTypes.func.isRequired,
-  onUpdate: PropTypes.func.isRequired,
-  onMove: PropTypes.func.isRequired,
-  onTransfer: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onUserAdd: PropTypes.func.isRequired,
-  onUserRemove: PropTypes.func.isRequired,
-  onBoardFetch: PropTypes.func.isRequired,
-  onLabelAdd: PropTypes.func.isRequired,
-  onLabelRemove: PropTypes.func.isRequired,
-  onLabelCreate: PropTypes.func.isRequired,
-  onLabelUpdate: PropTypes.func.isRequired,
-  onLabelMove: PropTypes.func.isRequired,
-  onLabelDelete: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
+    /* eslint-disable react/forbid-prop-types */
+    card: PropTypes.object.isRequired,
+    projectsToLists: PropTypes.array.isRequired,
+    boardMemberships: PropTypes.array.isRequired,
+    currentUserIds: PropTypes.array.isRequired,
+    labels: PropTypes.array.isRequired,
+    currentLabelIds: PropTypes.array.isRequired,
+    /* eslint-enable react/forbid-prop-types */
+    onNameEdit: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onMove: PropTypes.func.isRequired,
+    onTransfer: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+    onUserAdd: PropTypes.func.isRequired,
+    onUserRemove: PropTypes.func.isRequired,
+    onBoardFetch: PropTypes.func.isRequired,
+    onLabelAdd: PropTypes.func.isRequired,
+    onLabelRemove: PropTypes.func.isRequired,
+    onLabelCreate: PropTypes.func.isRequired,
+    onLabelUpdate: PropTypes.func.isRequired,
+    onLabelMove: PropTypes.func.isRequired,
+    onLabelDelete: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
 };
 
 export default ActionsStep;

@@ -77,6 +77,11 @@ module.exports = {
             isNotEmptyString: true,
             allowNull: true,
         },
+        startDate: {
+            type: 'string',
+            custom: dueDateValidator,
+            allowNull: true,
+        },
         dueDate: {
             type: 'string',
             custom: dueDateValidator,
@@ -174,6 +179,7 @@ module.exports = {
             'position',
             'name',
             'description',
+            'startDate',
             'dueDate',
             'stopwatch',
             'isSubscribed',
