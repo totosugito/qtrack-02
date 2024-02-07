@@ -301,7 +301,7 @@ const CardModal = React.memo(
                                     </div>
                                     <span className={styles.attachment}>
                                         {canEdit ? (
-                                            <DueDateEditPopup defaultValue={startDate} onUpdate={handleStartDateUpdate()}>
+                                            <DueDateEditPopup defaultValue={startDate} onUpdate={handleStartDateUpdate}>
                                             {/*<DueDateEditPopup defaultValue={startDate} >*/}
                                                 <DueDate value={startDate} />
                                             </DueDateEditPopup>

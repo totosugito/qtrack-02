@@ -1,51 +1,53 @@
-import EntryActionTypes from '../constants/EntryActionTypes';
+//
+//
+import EntryActionTypes from '../constants/EntryActionTypes'
 
 const createCard = (listId, data, autoOpen) => ({
-  type: EntryActionTypes.CARD_CREATE,
-  payload: {
-    listId,
-    data,
-    autoOpen,
-  },
-});
+    type: EntryActionTypes.CARD_CREATE,
+    payload: {
+        listId,
+        data,
+        autoOpen,
+    },
+})
 
 const handleCardCreate = (card) => ({
-  type: EntryActionTypes.CARD_CREATE_HANDLE,
-  payload: {
-    card,
-  },
-});
+    type: EntryActionTypes.CARD_CREATE_HANDLE,
+    payload: {
+        card,
+    },
+})
 
 const updateCard = (id, data) => ({
-  type: EntryActionTypes.CARD_UPDATE,
-  payload: {
-    id,
-    data,
-  },
-});
+    type: EntryActionTypes.CARD_UPDATE,
+    payload: {
+        id,
+        data,
+    },
+})
 
 const updateCurrentCard = (data) => ({
-  type: EntryActionTypes.CURRENT_CARD_UPDATE,
-  payload: {
-    data,
-  },
-});
+    type: EntryActionTypes.CURRENT_CARD_UPDATE,
+    payload: {
+        data,
+    },
+})
 
 const handleCardUpdate = (card) => ({
-  type: EntryActionTypes.CARD_UPDATE_HANDLE,
-  payload: {
-    card,
-  },
-});
+    type: EntryActionTypes.CARD_UPDATE_HANDLE,
+    payload: {
+        card,
+    },
+})
 
 const moveCard = (id, listId, index = 0) => ({
-  type: EntryActionTypes.CARD_MOVE,
-  payload: {
-    id,
-    listId,
-    index,
-  },
-});
+    type: EntryActionTypes.CARD_MOVE,
+    payload: {
+        id,
+        listId,
+        index,
+    },
+})
 
 const moveCurrentCard = (listId, index = 0) => ({
   type: EntryActionTypes.CURRENT_CARD_MOVE,
@@ -94,16 +96,16 @@ const handleCardDelete = (card) => ({
 });
 
 export default {
-  createCard,
-  handleCardCreate,
-  updateCard,
-  updateCurrentCard,
-  handleCardUpdate,
-  moveCard,
-  moveCurrentCard,
-  transferCard,
-  transferCurrentCard,
-  deleteCard,
-  deleteCurrentCard,
-  handleCardDelete,
-};
+    createCard,
+    handleCardCreate,
+    updateCard,
+    updateCurrentCard,
+    handleCardUpdate,
+    moveCard,
+    moveCurrentCard,
+    transferCard,
+    transferCurrentCard,
+    deleteCard,
+    deleteCurrentCard,
+    handleCardDelete,
+}
