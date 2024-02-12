@@ -1,4 +1,6 @@
-import { call, put, select } from 'redux-saga/effects';
+//
+//
+import { call, put, select } from 'redux-saga/effects'
 
 import { goToBoard, goToCard } from './router';
 import request from '../request';
@@ -8,55 +10,55 @@ import api from '../../../api';
 import { createLocalId } from '../../../utils/local-id';
 
 export function* createCard(listId, data, autoOpen) {
-  const { boardId } = yield select(selectors.selectListById, listId);
+    const { boardId } = yield select(selectors.selectListById, listId);
 
-  const nextData = {
-    ...data,
-    position: yield select(selectors.selectNextCardPosition, listId),
-  };
+    const nextData = {
+        ...data,
+        position: yield select(selectors.selectNextCardPosition, listId),
+    };
 
-  const localId = yield call(createLocalId);
+    const localId = yield call(createLocalId);
 
-  yield put(
-    actions.createCard({
-      ...nextData,
-      boardId,
-      listId,
-      id: localId,
-    }),
-  );
+    yield put(
+        actions.createCard({
+            ...nextData,
+            boardId,
+            listId,
+            id: localId,
+        }),
+    );
 
-  let card;
-  try {
-    ({ item: card } = yield call(request, api.createCard, listId, nextData));
-  } catch (error) {
-    yield put(actions.createCard.failure(localId, error));
-    return;
-  }
+    let card;
+    try {
+        ({ item: card } = yield call(request, api.createCard, listId, nextData));
+    } catch (error) {
+        yield put(actions.createCard.failure(localId, error));
+        return;
+    }
 
-  yield put(actions.createCard.success(localId, card));
+    yield put(actions.createCard.success(localId, card));
 
-  if (autoOpen) {
-    yield call(goToCard, card.id);
-  }
+    if (autoOpen) {
+        yield call(goToCard, card.id);
+    }
 }
 
 export function* handleCardCreate(card) {
-  yield put(actions.handleCardCreate(card));
+    yield put(actions.handleCardCreate(card));
 }
 
 export function* updateCard(id, data) {
-  yield put(actions.updateCard(id, data));
+    yield put(actions.updateCard(id, data));
 
-  let card;
-  try {
-    ({ item: card } = yield call(request, api.updateCard, id, data));
-  } catch (error) {
-    yield put(actions.updateCard.failure(id, error));
-    return;
-  }
+    let card;
+    try {
+        ({ item: card } = yield call(request, api.updateCard, id, data));
+    } catch (error) {
+        yield put(actions.updateCard.failure(id, error));
+        return;
+    }
 
-  yield put(actions.updateCard.success(card));
+    yield put(actions.updateCard.success(card));
 }
 
 export function* updateCurrentCard(data) {

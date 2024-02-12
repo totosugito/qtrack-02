@@ -1,3 +1,5 @@
+//
+//
 import { call, put, select } from 'redux-saga/effects';
 
 import request from '../request';
@@ -31,9 +33,9 @@ export function* createProjectManager(projectId, data) {
 }
 
 export function* createManagerInCurrentProject(data) {
-  const { projectId } = yield select(selectors.selectPath);
+    const { projectId } = yield select(selectors.selectPath);
 
-  yield call(createProjectManager, projectId, data);
+    yield call(createProjectManager, projectId, data);
 }
 
 export function* handleProjectManagerCreate(projectManager) {

@@ -1,4 +1,6 @@
-import { call, put, select } from 'redux-saga/effects';
+//
+//
+import { call, put, select } from 'redux-saga/effects'
 
 import { changeCoreLanguage, logout } from './core';
 import request from '../request';
@@ -8,17 +10,17 @@ import api from '../../../api';
 import { setAccessToken } from '../../../utils/access-token-storage';
 
 export function* createUser(data) {
-  yield put(actions.createUser(data));
+    yield put(actions.createUser(data));
 
-  let user;
-  try {
-    ({ item: user } = yield call(request, api.createUser, data));
-  } catch (error) {
-    yield put(actions.createUser.failure(error));
-    return;
-  }
+    let user;
+    try {
+        ({ item: user } = yield call(request, api.createUser, data));
+    } catch (error) {
+        yield put(actions.createUser.failure(error));
+        return;
+    }
 
-  yield put(actions.createUser.success(user));
+    yield put(actions.createUser.success(user));
 }
 
 export function* handleUserCreate(user) {
@@ -26,7 +28,7 @@ export function* handleUserCreate(user) {
 }
 
 export function* clearUserCreateError() {
-  yield put(actions.clearUserCreateError());
+   yield put(actions.clearUserCreateError());
 }
 
 export function* updateUser(id, data) {

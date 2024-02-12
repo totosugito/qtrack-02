@@ -1,16 +1,20 @@
+//
+//
 import { put } from 'redux-saga/effects';
 
 import actions from '../../../actions';
 
 export function* openModal(type) {
-  yield put(actions.openModal(type));
+    console.log('//*** sagas/core/services/modals/openModal')
+    yield put(actions.openModal(type));
 }
 
 export function* closeModal() {
-  yield put(actions.closeModal());
+    console.log('//*** sagas/core/services/modals/closeModal')
+    yield put(actions.closeModal());
 }
 
 export default {
-  openModal,
-  closeModal,
+    openModal,
+    closeModal,
 };

@@ -23,22 +23,20 @@ export const makeSelectBoardById = () =>
 export const selectBoardById = makeSelectBoardById();
 
 export const selectCurrentBoard = createSelector(
-  orm,
-  (state) => selectPath(state).boardId,
-  ({ Board }, id) => {
-    if (!id) {
-      return id;
-    }
+    orm,
+    (state) => selectPath(state).boardId,
+    ({ Board }, id) => {
+        if (!id)
+            return id
 
-    const boardModel = Board.withId(id);
+        const boardModel = Board.withId(id)
 
-    if (!boardModel) {
-      return boardModel;
-    }
+        if (!boardModel)
+            return boardModel
 
-    return boardModel.ref;
-  },
-);
+        return boardModel.ref
+    },
+)
 
 export const selectMembershipsForCurrentBoard = createSelector(
   orm,

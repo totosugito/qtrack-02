@@ -34,9 +34,9 @@ export function* createList(boardId, data) {
 }
 
 export function* createListInCurrentBoard(data) {
-  const { boardId } = yield select(selectors.selectPath);
+    const { boardId } = yield select(selectors.selectPath);
 
-  yield call(createList, boardId, data);
+    yield call(createList, boardId, data);
 }
 
 export function* handleListCreate(list) {

@@ -13,7 +13,7 @@ export const selectPathname = ({
 }) => pathname;
 
 export const selectPathsMatch = createReselectSelector(selectPathname, (pathname) =>
-  matchPaths(pathname, Object.values(Paths)),
+    matchPaths(pathname, Object.values(Paths)),
 );
 
 export const selectPath = createReduxOrmSelector(

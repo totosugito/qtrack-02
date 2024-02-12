@@ -1,4 +1,6 @@
-import router from './router';
-import login from './login';
+//
+//
+import router from './router'
+import login from './login'
 
-export default [router, login];
+export default [router, login]

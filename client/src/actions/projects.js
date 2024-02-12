@@ -1,10 +1,10 @@
 import ActionTypes from '../constants/ActionTypes';
 
 const createProject = (data) => ({
-  type: ActionTypes.PROJECT_CREATE,
-  payload: {
-    data,
-  },
+    type: ActionTypes.PROJECT_CREATE,
+    payload: {
+        data,
+    },
 });
 
 createProject.success = (project, projectManagers) => ({
@@ -23,14 +23,14 @@ createProject.failure = (error) => ({
 });
 
 const handleProjectCreate = (project, users, projectManagers, boards, boardMemberships) => ({
-  type: ActionTypes.PROJECT_CREATE_HANDLE,
-  payload: {
-    project,
-    users,
-    projectManagers,
-    boards,
-    boardMemberships,
-  },
+    type: ActionTypes.PROJECT_CREATE_HANDLE,
+    payload: {
+        project,
+        users,
+        projectManagers,
+        boards,
+        boardMemberships,
+    },
 });
 
 const updateProject = (id, data) => ({

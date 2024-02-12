@@ -6,29 +6,29 @@ import { Radio, Tab } from 'semantic-ui-react';
 import styles from './PreferencesPane.module.scss';
 
 const PreferencesPane = React.memo(({ subscribeToOwnCards, onUpdate }) => {
-  const [t] = useTranslation();
+    const [t] = useTranslation();
 
-  const handleSubscribeToOwnCardsChange = useCallback(() => {
-    onUpdate({
-      subscribeToOwnCards: !subscribeToOwnCards,
-    });
-  }, [subscribeToOwnCards, onUpdate]);
+    const handleSubscribeToOwnCardsChange = useCallback(() => {
+        onUpdate({
+            subscribeToOwnCards: !subscribeToOwnCards,
+        });
+    }, [subscribeToOwnCards, onUpdate]);
 
-  return (
-    <Tab.Pane attached={false} className={styles.wrapper}>
-      <Radio
-        toggle
-        checked={subscribeToOwnCards}
-        label={t('common.subscribeToMyOwnCardsByDefault')}
-        onChange={handleSubscribeToOwnCardsChange}
-      />
-    </Tab.Pane>
-  );
-});
+    return (
+        <Tab.Pane attached={false} className={styles.wrapper}>
+            <Radio
+                toggle
+                checked={subscribeToOwnCards}
+                label={t('common.subscribeToMyOwnCardsByDefault')}
+                onChange={handleSubscribeToOwnCardsChange}
+            />
+        </Tab.Pane>
+    )
+})
 
 PreferencesPane.propTypes = {
-  subscribeToOwnCards: PropTypes.bool.isRequired,
-  onUpdate: PropTypes.func.isRequired,
-};
+    subscribeToOwnCards: PropTypes.bool.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+}
 
-export default PreferencesPane;
+export default PreferencesPane

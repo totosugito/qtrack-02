@@ -1,3 +1,5 @@
+//
+//
 import router from './router';
 import socket from './socket';
 import core from './core';
@@ -17,21 +19,21 @@ import commentActivities from './comment-activities';
 import notifications from './notifications';
 
 export default [
-  router,
-  socket,
-  core,
-  modals,
-  users,
-  projects,
-  projectManagers,
-  boards,
-  boardMemberships,
-  labels,
-  lists,
-  cards,
-  tasks,
-  attachments,
-  activities,
-  commentActivities,
-  notifications,
+    router,
+    socket,
+    core,
+    modals,
+    users,
+    projects,
+    projectManagers,
+    boards,
+    boardMemberships,
+    labels,
+    lists,
+    cards,
+    tasks,
+    attachments,
+    activities,
+    commentActivities,
+    notifications,
 ];

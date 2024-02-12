@@ -1,3 +1,5 @@
+//
+//
 import { nanoid } from 'nanoid';
 import { call, put, select } from 'redux-saga/effects';
 import { replace } from '../../../lib/redux-router';
@@ -9,24 +11,24 @@ import { setAccessToken } from '../../../utils/access-token-storage';
 import Paths from '../../../constants/Paths';
 
 export function* initializeLogin() {
-  const { item: config } = yield call(api.getConfig); // TODO: handle error
+    const { item: config } = yield call(api.getConfig); // TODO: handle error
 
-  yield put(actions.initializeLogin(config));
+    yield put(actions.initializeLogin(config))
 }
 
 export function* authenticate(data) {
-  yield put(actions.authenticate(data));
+    yield put(actions.authenticate(data))
 
-  let accessToken;
-  try {
-    ({ item: accessToken } = yield call(api.createAccessToken, data));
-  } catch (error) {
-    yield put(actions.authenticate.failure(error));
-    return;
-  }
+    let accessToken
+    try {
+        ({ item: accessToken } = yield call(api.createAccessToken, data))
+    } catch (error) {
+        yield put(actions.authenticate.failure(error))
+        return
+    }
 
-  yield call(setAccessToken, accessToken);
-  yield put(actions.authenticate.success(accessToken));
+    yield call(setAccessToken, accessToken)
+    yield put(actions.authenticate.success(accessToken))
 }
 
 export function* authenticateUsingOidc() {
@@ -110,7 +112,7 @@ export function* authenticateUsingOidcCallback() {
 }
 
 export function* clearAuthenticateError() {
-  yield put(actions.clearAuthenticateError());
+    yield put(actions.clearAuthenticateError());
 }
 
 export default {

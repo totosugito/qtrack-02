@@ -1,4 +1,6 @@
-import { call, put, select } from 'redux-saga/effects';
+//
+//
+import { call, put, select } from 'redux-saga/effects'
 
 import { goToProject, goToRoot } from './router';
 import request from '../request';
@@ -7,31 +9,34 @@ import actions from '../../../actions';
 import api from '../../../api';
 
 export function* createProject(data) {
-  yield put(actions.createProject(data));
+    console.log('//*** sagas/core/services/project/createProject')
+    yield put(actions.createProject(data));
 
-  let project;
-  let projectManagers;
+    let project;
+    let projectManagers;
 
-  try {
-    ({
-      item: project,
-      included: { projectManagers },
-    } = yield call(request, api.createProject, data));
-  } catch (error) {
-    yield put(actions.createProject.failure(error));
-    return;
-  }
+    try {
+        ({
+            item: project,
+            included: { projectManagers },
+        } = yield call(request, api.createProject, data));
+    } catch (error) {
+        yield put(actions.createProject.failure(error));
+        return;
+    }
 
-  yield put(actions.createProject.success(project, projectManagers));
-  yield call(goToProject, project.id);
+    yield put(actions.createProject.success(project, projectManagers));
+    yield call(goToProject, project.id);
 }
 
 export function* handleProjectCreate({ id }) {
-  let project;
-  let users;
-  let projectManagers;
-  let boards;
-  let boardMemberships;
+    console.log('//*** sagas/core/services/project/handleProjectCreate')
+
+    let project;
+    let users;
+    let projectManagers;
+    let boards;
+    let boardMemberships;
 
   try {
     ({
@@ -110,9 +115,11 @@ export function* deleteProject(id) {
 }
 
 export function* deleteCurrentProject() {
-  const { projectId } = yield select(selectors.selectPath);
 
-  yield call(deleteProject, projectId);
+    const { projectId } = yield select(selectors.selectPath);
+    console.log('//*** sagas/core/services/project/deleteCurrentProject ' + projectId)
+
+    yield call(deleteProject, projectId);
 }
 
 export function* handleProjectDelete(project) {

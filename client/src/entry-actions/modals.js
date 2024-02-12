@@ -16,10 +16,10 @@ const openUserSettingsModal = () => ({
 });
 
 const openProjectAddModal = () => ({
-  type: EntryActionTypes.MODAL_OPEN,
-  payload: {
-    type: ModalTypes.PROJECT_ADD,
-  },
+    type: EntryActionTypes.MODAL_OPEN,
+    payload: {
+        type: ModalTypes.PROJECT_ADD,
+    },
 });
 
 const openProjectSettingsModal = () => ({
