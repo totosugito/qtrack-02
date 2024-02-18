@@ -35,6 +35,8 @@ module.exports = {
 
           if (inputs.subscribe && this.req.isSocket) {
               sails.sockets.join(this.req, `user:${user.id}`);
+              // ***
+              sails.log(`... api/controllers/users/show  s.join : user:${user.id}`)
           }
       } else {
           user = await sails.helpers.users.getOne(inputs.id);

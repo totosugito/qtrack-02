@@ -80,6 +80,8 @@ module.exports = {
 
         if (inputs.subscribe && this.req.isSocket) {
             sails.sockets.join(this.req, `board:${board.id}`);
+            // ***
+            sails.log(`... api/controllers/boards/show  s.join :board:${board.id}`)
         }
 
         return {

@@ -6,22 +6,22 @@ import entryActions from '../entry-actions';
 import Login from '../components/Login';
 
 const mapStateToProps = (state) => {
-  const oidcConfig = selectors.selectOidcConfig(state);
+    const oidcConfig = selectors.selectOidcConfig(state);
 
-  const {
-    ui: {
-      authenticateForm: { data: defaultData, isSubmitting, isSubmittingUsingOidc, error },
-    },
-  } = state;
+    const {
+        ui: {
+            authenticateForm: { data: defaultData, isSubmitting, isSubmittingUsingOidc, error },
+        },
+    } = state;
 
-  return {
-    defaultData,
-    isSubmitting,
-    isSubmittingUsingOidc,
-    error,
-    withOidc: !!oidcConfig,
-  };
-};
+    return {
+        defaultData,
+        isSubmitting,
+        isSubmittingUsingOidc,
+        error,
+        withOidc: !!oidcConfig,
+    }
+}
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(

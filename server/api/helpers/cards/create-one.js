@@ -63,7 +63,9 @@ module.exports = {
                     id,
                     position: nextPosition,
                 },
-            });
+            })
+            // ***
+            sails.log(`... api/helpers/cards/create-one  s.broadcast : board:${values.list.boardId}  cardUpdate`)
         });
 
         const card = await Card.create({
@@ -82,6 +84,8 @@ module.exports = {
             },
             inputs.request,
         );
+        // ***
+        sails.log(`... api/helpers/cards/create-one  s.broadcast : board:${card.boardId} cardCreate`)
 
         if (values.creatorUser.subscribeToOwnCards) {
             await CardSubscription.create({
@@ -95,6 +99,8 @@ module.exports = {
                     isSubscribed: true,
                 },
             });
+            // ***
+            sails.log(`... api/helpers/cards/create-one  s.broadcast : user:${card.creatorUserId} cardUpdate`)
         }
 
         await sails.helpers.actions.createOne.with({

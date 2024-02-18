@@ -1,3 +1,5 @@
+//
+//
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Loader } from 'semantic-ui-react';
@@ -10,10 +12,10 @@ const LoginWrapper = React.memo(({ isInitializing }) => {
   }
 
   return <LoginContainer />;
-});
+})
 
 LoginWrapper.propTypes = {
   isInitializing: PropTypes.bool.isRequired,
-};
+}
 
-export default LoginWrapper;
+export default LoginWrapper

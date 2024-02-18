@@ -1,3 +1,5 @@
+//
+//
 import { createSelector } from 'redux-orm';
 
 import orm from '../orm';
@@ -5,13 +7,13 @@ import orm from '../orm';
 export const selectCurrentUserId = ({ auth: { userId } }) => userId;
 
 export const selectUsers = createSelector(orm, ({ User }) =>
-  User.getOrderedUndeletedQuerySet().toRefArray(),
+    User.getOrderedUndeletedQuerySet().toRefArray(),
 );
 
 export const selectUsersExceptCurrent = createSelector(
-  orm,
-  (state) => selectCurrentUserId(state),
-  ({ User }, id) =>
+    orm,
+    (state) => selectCurrentUserId(state),
+    ({ User }, id) =>
     User.getOrderedUndeletedQuerySet()
       .exclude({
         id,
@@ -20,9 +22,9 @@ export const selectUsersExceptCurrent = createSelector(
 );
 
 export const selectCurrentUser = createSelector(
-  orm,
-  (state) => selectCurrentUserId(state),
-  ({ User }, id) => {
+    orm,
+    (state) => selectCurrentUserId(state),
+    ({ User }, id) => {
     if (!id) {
       return id;
     }
@@ -34,13 +36,13 @@ export const selectCurrentUser = createSelector(
     }
 
     return userModel.ref;
-  },
+    },
 );
 
 export const selectProjectsForCurrentUser = createSelector(
-  orm,
-  (state) => selectCurrentUserId(state),
-  ({ User }, id) => {
+    orm,
+    (state) => selectCurrentUserId(state),
+    ({ User }, id) => {
     if (!id) {
       return id;
     }
@@ -67,13 +69,13 @@ export const selectProjectsForCurrentUser = createSelector(
         firstBoardId: boardsModels[0] && boardsModels[0].id,
       };
     });
-  },
+    },
 );
 
 export const selectProjectsToListsForCurrentUser = createSelector(
-  orm,
-  (state) => selectCurrentUserId(state),
-  ({ User }, id) => {
+    orm,
+    (state) => selectCurrentUserId(state),
+    ({ User }, id) => {
     if (!id) {
       return id;
     }
@@ -91,13 +93,13 @@ export const selectProjectsToListsForCurrentUser = createSelector(
         lists: boardModel.getOrderedListsQuerySet().toRefArray(),
       })),
     }));
-  },
+    },
 );
 
 export const selectNotificationsForCurrentUser = createSelector(
-  orm,
-  (state) => selectCurrentUserId(state),
-  ({ User }, id) => {
+    orm,
+    (state) => selectCurrentUserId(state),
+    ({ User }, id) => {
     if (!id) {
       return id;
     }
@@ -119,15 +121,15 @@ export const selectNotificationsForCurrentUser = createSelector(
         },
         card: notificationModel.card && notificationModel.card.ref,
       }));
-  },
+    },
 );
 
 export default {
-  selectCurrentUserId,
-  selectUsers,
-  selectUsersExceptCurrent,
-  selectCurrentUser,
-  selectProjectsForCurrentUser,
-  selectProjectsToListsForCurrentUser,
-  selectNotificationsForCurrentUser,
-};
+    selectCurrentUserId,
+    selectUsers,
+    selectUsersExceptCurrent,
+    selectCurrentUser,
+    selectProjectsForCurrentUser,
+    selectProjectsToListsForCurrentUser,
+    selectNotificationsForCurrentUser,
+}
