@@ -61,6 +61,11 @@
         "socket.io-client": "^2.5.0",
         "validator": "^13.11.0",
         "whatwg-fetch": "^3.6.19",
-        "zxcvbn": "^4.4.2"
+        "zxcvbn": "^4.4.2",
+        "react-transition-group": "^4.4.5",
+        "@emotion/react": "^11.11.3",
+        "@emotion/styled": "^11.11.0",
+        "@mui/icons-material": "^5.15.4",
+        "@mui/material": "^5.15.4"
     }
 }

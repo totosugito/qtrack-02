@@ -16,16 +16,21 @@ import AttachmentAddStep from './AttachmentAddStep';
 import Activities from './Activities';
 import User from '../User';
 import Label from '../Label';
-import DueDate from '../DueDate';
 import Stopwatch from '../Stopwatch';
 import BoardMembershipsStep from '../BoardMembershipsStep';
 import LabelsStep from '../LabelsStep';
-import DueDateEditStep from '../DueDateEditStep';
 import StopwatchEditStep from '../StopwatchEditStep';
 import CardMoveStep from '../CardMoveStep';
 import DeleteStep from '../DeleteStep';
 
 import styles from './CardModal.module.scss';
+
+// import DueDate from '../DueDate';
+// import DueDateEditStep from '../DueDateEditStep';
+import DateTimeRangeStep from "../DateTimeRangeStep";
+import DateTimeRange from "../DateTimeRange"
+import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined'
+
 
 const CardModal = React.memo(
   ({
@@ -109,18 +114,10 @@ const CardModal = React.memo(
         [onUpdate],
     )
 
-    const handleStartDateUpdate = useCallback(
-        (newStartDate) => {
+    const handleDueDateUpdate = useCallback(
+        (newStartDate, newDueDate) => {
             onUpdate({
                 startDate: newStartDate,
-            });
-        },
-        [onUpdate],
-    )
-
-    const handleDueDateUpdate = useCallback(
-        (newDueDate) => {
-            onUpdate({
                 dueDate: newDueDate,
             });
         },
@@ -170,7 +167,7 @@ const CardModal = React.memo(
     const AttachmentAddPopup = usePopup(AttachmentAddStep);
     const BoardMembershipsPopup = usePopup(BoardMembershipsStep);
     const LabelsPopup = usePopup(LabelsStep);
-    const DueDateEditPopup = usePopup(DueDateEditStep);
+      const DueDateEditPopup = usePopup(DateTimeRangeStep);
     const StopwatchEditPopup = usePopup(StopwatchEditStep);
     const CardMovePopup = usePopup(CardMoveStep);
     const DeletePopup = usePopup(DeleteStep);
@@ -292,40 +289,17 @@ const CardModal = React.memo(
                                 </div>
                             )}
 
-                            {startDate && (
+                            { startDate && dueDate && (
                                 <div className={styles.attachments}>
-                                    <div className={styles.text}>
-                                        {t('common.startDate', {
-                                          context: 'title',
-                                        })}
-                                    </div>
                                     <span className={styles.attachment}>
                                         {canEdit ? (
-                                            <DueDateEditPopup defaultValue={startDate} onUpdate={handleStartDateUpdate}>
-                                            {/*<DueDateEditPopup defaultValue={startDate} >*/}
-                                                <DueDate value={startDate} />
-                                            </DueDateEditPopup>
+                                            <>
+                                                <DueDateEditPopup startDate={startDate} dueDate={dueDate} onUpdate={handleDueDateUpdate}>
+                                                    <DateTimeRange startDate={startDate} dueDate={dueDate}/>
+                                                </DueDateEditPopup>
+                                            </>
                                         ) : (
-                                            <DueDate value={startDate} />
-                                        )}
-                                    </span>
-                                </div>
-                            )}
-
-                            {dueDate && (
-                                <div className={styles.attachments}>
-                                    <div className={styles.text}>
-                                        {t('common.dueDate', {
-                                            context: 'title',
-                                        })}
-                                    </div>
-                                    <span className={styles.attachment}>
-                                        {canEdit ? (
-                                            <DueDateEditPopup defaultValue={dueDate} onUpdate={handleDueDateUpdate}>
-                                                <DueDate value={dueDate} />
-                                            </DueDateEditPopup>
-                                        ) : (
-                                            <DueDate value={dueDate} />
+                                            <DateTimeRange startDate={startDate} dueDate={dueDate}/>
                                         )}
                                     </span>
                                 </div>
@@ -482,21 +456,12 @@ const CardModal = React.memo(
                                     </Button>
                                 </LabelsPopup>
 
-                                <DueDateEditPopup defaultValue={startDate} onUpdate={handleStartDateUpdate}>
-                                    <Button fluid className={styles.actionButton}>
-                                        <Icon name="calendar check outline" className={styles.actionIcon} />
-                                        {t('common.startDate', {
-                                          context: 'title',
-                                        })}
-                                    </Button>
-                                </DueDateEditPopup>
 
-
-                                <DueDateEditPopup defaultValue={dueDate} onUpdate={handleDueDateUpdate}>
+                                <DueDateEditPopup startDate={startDate} dueDate={dueDate} onUpdate={handleDueDateUpdate}>
                                     <Button fluid className={styles.actionButton}>
-                                        <Icon name="calendar check outline" className={styles.actionIcon} />
-                                        {t('common.dueDate', {
-                                        context: 'title',
+                                        <EventAvailableOutlinedIcon fontSize='small' className={styles.actionIcon}/>
+                                        {t('common.dateRange', {
+                                            context: 'title',
                                         })}
                                     </Button>
                                 </DueDateEditPopup>

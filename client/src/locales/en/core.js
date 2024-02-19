@@ -3,6 +3,7 @@ export default {
     date: 'M/d/yyyy',
     time: 'p',
     dateTime: '$t(format:date) $t(format:time)',
+    dateTimePicker: 'yyyy-MM-dd HH:mm',
     longDate: 'MMM d',
     longDateTime: "MMMM d 'at' p",
     fullDate: 'MMM d, y',
@@ -11,7 +12,7 @@ export default {
 
   translation: {
     common: {
-      aboutPlanka: 'About Planka',
+      aboutPlanka: 'About trackAI',
       account: 'Account',
       actions: 'Actions',
       addAttachment_title: 'Add Attachment',
@@ -22,7 +23,7 @@ export default {
       administrator: 'Administrator',
       all: 'All',
       allChangesWillBeAutomaticallySavedAfterConnectionRestored:
-        'All changes will be automatically saved<br />after connection restored.',
+          'All changes will be automatically saved<br />after connection restored.',
       areYouSureYouWantToDeleteThisAttachment: 'Are you sure you want to delete this attachment?',
       areYouSureYouWantToDeleteThisBoard: 'Are you sure you want to delete this board?',
       areYouSureYouWantToDeleteThisCard: 'Are you sure you want to delete this card?',
@@ -35,9 +36,9 @@ export default {
       areYouSureYouWantToLeaveBoard: 'Are you sure you want to leave the board?',
       areYouSureYouWantToLeaveProject: 'Are you sure you want to leave the project?',
       areYouSureYouWantToRemoveThisManagerFromProject:
-        'Are you sure you want to remove this manager from the project?',
+          'Are you sure you want to remove this manager from the project?',
       areYouSureYouWantToRemoveThisMemberFromBoard:
-        'Are you sure you want to remove this member from the board?',
+          'Are you sure you want to remove this member from the board?',
       attachment: 'Attachment',
       attachments: 'Attachments',
       authentication: 'Authentication',
@@ -61,6 +62,7 @@ export default {
       date: 'Date',
       startDate_title: 'Start Date',
       dueDate_title: 'Due Date',
+      dateRange_title: 'Date Range',
       deleteAttachment_title: 'Delete Attachment',
       deleteBoard_title: 'Delete Board',
       deleteCard_title: 'Delete Card',
@@ -77,8 +79,8 @@ export default {
       editAttachment_title: 'Edit Attachment',
       editAvatar_title: 'Edit Avatar',
       editBoard_title: 'Edit Board',
-      // editDueDate_title: 'Edit Due Date',
-      editDueDate_title: 'Edit Date',
+      editDueDate_title: 'Edit Due Date',
+      editDateRange_title: 'Edit Date Range',
       editEmail_title: 'Edit E-mail',
       editInformation_title: 'Edit Information',
       editLabel_title: 'Edit Label',
@@ -128,7 +130,7 @@ export default {
       phone: 'Phone',
       preferences: 'Preferences',
       pressPasteShortcutToAddAttachmentFromClipboard:
-        'Tip: press Ctrl-V (Cmd-V on Mac) to add an attachment from the clipboard.',
+          'Tip: press Ctrl-V (Cmd-V on Mac) to add an attachment from the clipboard.',
       project: 'Project',
       projectNotFound_title: 'Project Not Found',
       removeManager_title: 'Remove Manager',
@@ -147,7 +149,7 @@ export default {
       taskActions_title: 'Task Actions',
       tasks: 'Tasks',
       thereIsNoPreviewAvailableForThisAttachment:
-        'There is no preview available for this attachment.',
+          'There is no preview available for this attachment.',
       time: 'Time',
       title: 'Title',
       userActions_title: 'User Actions',
@@ -155,7 +157,7 @@ export default {
       userLeftNewCommentToCard: '{{user}} left a new comment «{{comment}}» to <2>{{card}}</2>',
       userMovedCardFromListToList: '{{user}} moved <2>{{card}}</2> from {{fromList}} to {{toList}}',
       userMovedThisCardFromListToList:
-        '<0>{{user}}</0><1> moved this card from {{fromList}} to {{toList}}</1>',
+          '<0>{{user}}</0><1> moved this card from {{fromList}} to {{toList}}</1>',
       username: 'Username',
       usernameAlreadyInUse: 'Username already in use',
       users: 'Users',
@@ -199,8 +201,8 @@ export default {
       deleteTask_title: 'Delete Task',
       deleteUser: 'Delete user',
       edit: 'Edit',
-      editStartDate_title: 'Edit Start Date',
       editDueDate_title: 'Edit Due Date',
+      editDateRange_title: 'Edit Date Range',
       editDescription_title: 'Edit Description',
       editEmail_title: 'Edit E-mail',
       editInformation_title: 'Edit Information',
@@ -234,6 +236,11 @@ export default {
       unsubscribe: 'Unsubscribe',
       uploadNewAvatar: 'Upload new avatar',
       uploadNewImage: 'Upload new image',
+      cancel: 'Cancel'
     },
+
+    custom: {
+      "membersCount": "Members ({{count}})"
+    }
   },
 };

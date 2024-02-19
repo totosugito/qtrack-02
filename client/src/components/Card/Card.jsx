@@ -17,6 +17,7 @@ import User from '../User';
 import Label from '../Label';
 import DueDate from '../DueDate';
 import Stopwatch from '../Stopwatch';
+import DateTimeRange from "../DateTimeRange"
 
 import styles from './Card.module.scss';
 
@@ -122,16 +123,13 @@ const Card = React.memo(
                                 {notificationsTotal}
                             </span>
                         )}
-                        {startDate && (
+
+                        {startDate && dueDate && (
                             <span className={classNames(styles.attachment, styles.attachmentLeft)}>
-                                <DueDate value={startDate} size="tiny" />
+                                <DateTimeRange startDate={startDate} dueDate={dueDate} size="tiny"/>
                             </span>
                         )}
-                        {dueDate && (
-                            <span className={classNames(styles.attachment, styles.attachmentLeft)}>
-                                <DueDate value={dueDate} size="tiny" />
-                            </span>
-                        )}
+
                         {stopwatch && (
                             <span className={classNames(styles.attachment, styles.attachmentLeft)}>
                                 <Stopwatch

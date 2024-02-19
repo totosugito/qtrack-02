@@ -14,6 +14,7 @@ import CardMoveStep from '../CardMoveStep';
 import DeleteStep from '../DeleteStep';
 
 import styles from './ActionsStep.module.scss';
+import DateTimeRangeStep from "../DateTimeRangeStep"
 
 const StepTypes = {
     USERS: 'USERS',
@@ -65,10 +66,6 @@ const ActionsStep = React.memo(
       openStep(StepTypes.LABELS);
     }, [openStep]);
 
-    const handleEditStartDateClick = useCallback(() => {
-        openStep(StepTypes.EDIT_START_DATE);
-        }, [openStep]);
-
     const handleEditDueDateClick = useCallback(() => {
       openStep(StepTypes.EDIT_DUE_DATE);
     }, [openStep]);
@@ -85,19 +82,14 @@ const ActionsStep = React.memo(
       openStep(StepTypes.DELETE);
     }, [openStep]);
 
-      const handleStartDateUpdate = useCallback(
-          (startDate) => {
-              onUpdate({
-                  startDate,
-              });
-          },
-          [onUpdate],
-      );
+
+
     const handleDueDateUpdate = useCallback(
-      (dueDate) => {
-        onUpdate({
-          dueDate,
-        });
+      (startDate, dueDate) => {
+          onUpdate({
+              startDate,
+              dueDate,
+          });
       },
       [onUpdate],
     );
@@ -137,24 +129,11 @@ const ActionsStep = React.memo(
               onBack={handleBack}
             />
           );
-          case StepTypes.EDIT_START_DATE:
-              return (
-                  <DueDateEditStep
-                      defaultValue={card.startDate}
-                      onUpdate={handleStartDateUpdate}
-                      onBack={handleBack}
-                      onClose={onClose}
-                  />
-              );
+
         case StepTypes.EDIT_DUE_DATE:
-          return (
-            <DueDateEditStep
-              defaultValue={card.dueDate}
-              onUpdate={handleDueDateUpdate}
-              onBack={handleBack}
-              onClose={onClose}
-            />
-          );
+            return (
+                <DateTimeRangeStep startDate={card.startDate} dueDate={card.dueDate} onUpdate={handleDueDateUpdate} onClose={onClose}/>
+            );
         case StepTypes.EDIT_STOPWATCH:
           return (
             <StopwatchEditStep
@@ -214,16 +193,12 @@ const ActionsStep = React.memo(
                 context: 'title',
               })}
             </Menu.Item>
-              <Menu.Item className={styles.menuItem} onClick={handleEditStartDateClick}>
-                  {t('action.editStartDate', {
+
+              <Menu.Item className={styles.menuItem} onClick={handleEditDueDateClick}>
+                  {t('action.editDateRange', {
                       context: 'title',
                   })}
               </Menu.Item>
-            <Menu.Item className={styles.menuItem} onClick={handleEditDueDateClick}>
-              {t('action.editDueDate', {
-                context: 'title',
-              })}
-            </Menu.Item>
             <Menu.Item className={styles.menuItem} onClick={handleEditStopwatchClick}>
               {t('action.editStopwatch', {
                 context: 'title',
