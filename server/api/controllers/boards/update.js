@@ -18,6 +18,9 @@ module.exports = {
             type: 'string',
             isNotEmptyString: true,
         },
+        eT: {
+          type: 'json'
+        },
     },
 
     exits: {
@@ -48,7 +51,7 @@ module.exports = {
           throw Errors.BOARD_NOT_FOUND; // Forbidden
         }
 
-        const values = _.pick(inputs, ['position', 'name']);
+        const values = _.pick(inputs, ['position', 'name', 'eT']);
 
         board = await sails.helpers.boards.updateOne.with({
           values,

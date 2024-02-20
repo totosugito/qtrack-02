@@ -30,7 +30,7 @@ import styles from './CardModal.module.scss';
 import DateTimeRangeStep from "../DateTimeRangeStep";
 import DateTimeRange from "../DateTimeRange"
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined'
-
+import Cost from './Cost';
 
 const CardModal = React.memo(
   ({
@@ -39,6 +39,7 @@ const CardModal = React.memo(
     startDate,
     dueDate,
     stopwatch,
+      eT,
     isSubscribed,
     isActivitiesFetching,
     isAllActivitiesFetched,
@@ -123,6 +124,17 @@ const CardModal = React.memo(
         },
         [onUpdate],
     )
+
+  const handleCostUpdate = useCallback(
+      (newBudget) => {
+          onUpdate({
+              eT : {
+                  budget: newBudget
+              }
+          });
+      },
+      [onUpdate],
+  )
 
     const handleStopwatchUpdate = useCallback(
         (newStopwatch) => {
@@ -391,6 +403,9 @@ const CardModal = React.memo(
                                 />
                             </div>
                         </div>
+                    )}
+                    { canEdit && (
+                        <Cost defaultValue={eT.budget ? eT.budget: "budget ..."} onUpdate={handleCostUpdate} />
                     )}
                     {attachments.length > 0 && (
                         <div className={styles.contentModule}>

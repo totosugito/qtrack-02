@@ -6,51 +6,55 @@
  */
 
 const ImportTypes = {
-  TRELLO: 'trello',
+    TRELLO: 'trello',
 };
 
 module.exports = {
-  ImportTypes,
+    ImportTypes,
 
-  attributes: {
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+    attributes: {
+        //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
+        //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
+        //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    position: {
-      type: 'number',
-      required: true,
-    },
-    name: {
-      type: 'string',
-      required: true,
-    },
+        position: {
+            type: 'number',
+            required: true,
+        },
+        name: {
+            type: 'string',
+            required: true,
+        },
+        eT: {
+            type: 'json',
+            defaultsTo: {}
+        },
 
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
+        //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
+        //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
+        //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
 
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+        //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
+        //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
+        //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    projectId: {
-      model: 'Project',
-      required: true,
-      columnName: 'project_id',
+        projectId: {
+            model: 'Project',
+            required: true,
+            columnName: 'project_id',
+        },
+        memberUsers: {
+            collection: 'User',
+            via: 'boardId',
+            through: 'BoardMembership',
+        },
+        lists: {
+            collection: 'List',
+            via: 'boardId',
+        },
+        labels: {
+            collection: 'Label',
+            via: 'boardId',
+        },
     },
-    memberUsers: {
-      collection: 'User',
-      via: 'boardId',
-      through: 'BoardMembership',
-    },
-    lists: {
-      collection: 'List',
-      via: 'boardId',
-    },
-    labels: {
-      collection: 'Label',
-      via: 'boardId',
-    },
-  },
 };

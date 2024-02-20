@@ -72,7 +72,10 @@ module.exports = {
             type: 'ref',
             columnName: 'password_changed_at',
         },
-
+        eT: {
+            type: 'json',
+            defaultsTo: {}
+        },
         //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
         //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
         //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

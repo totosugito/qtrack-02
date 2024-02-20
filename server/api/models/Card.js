@@ -35,6 +35,10 @@ module.exports = {
         stopwatch: {
             type: 'json',
         },
+        eT: {
+            type: 'json',
+            defaultsTo: {}
+        },
 
         //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
         //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

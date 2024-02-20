@@ -42,6 +42,9 @@ module.exports = {
         subscribeToOwnCards: {
           type: 'boolean',
         },
+        eT: {
+          type: 'json'
+        },
     },
 
     exits: {
@@ -90,6 +93,7 @@ module.exports = {
             'organization',
             'language',
             'subscribeToOwnCards',
+            'eT'
           ]),
           avatar: inputs.avatarUrl,
         };

@@ -53,6 +53,9 @@ module.exports = {
             type: 'json',
             custom: backgroundImageValidator,
         },
+        eT: {
+            type: 'json'
+        },
     },
 
     exits: {
@@ -78,7 +81,7 @@ module.exports = {
             throw Errors.PROJECT_NOT_FOUND; // Forbidden
         }
 
-        const values = _.pick(inputs, ['name', 'background', 'backgroundImage']);
+        const values = _.pick(inputs, ['name', 'background', 'backgroundImage', 'eT']);
 
         project = await sails.helpers.projects.updateOne.with({
             values,

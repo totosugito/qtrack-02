@@ -6,21 +6,22 @@ import entryActions from '../entry-actions';
 import ProjectSettingsModal from '../components/ProjectSettingsModal';
 
 const mapStateToProps = (state) => {
-  const users = selectors.selectUsers(state);
+      const users = selectors.selectUsers(state);
 
-  const { name, background, backgroundImage, isBackgroundImageUpdating } =
-    selectors.selectCurrentProject(state);
+      const { name, eT, background, backgroundImage, isBackgroundImageUpdating } =
+        selectors.selectCurrentProject(state);
 
-  const managers = selectors.selectManagersForCurrentProject(state);
+      const managers = selectors.selectManagersForCurrentProject(state);
 
-  return {
-    name,
-    background,
-    backgroundImage,
-    isBackgroundImageUpdating,
-    managers,
-    allUsers: users,
-  };
+      return {
+            name,
+            eT,
+            background,
+            backgroundImage,
+            isBackgroundImageUpdating,
+            managers,
+            allUsers: users,
+      };
 };
 
 const mapDispatchToProps = (dispatch) =>

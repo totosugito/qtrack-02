@@ -10,6 +10,7 @@ import GeneralPane from './GeneralPane';
 const ProjectSettingsModal = React.memo(
   ({
     name,
+    eT,
     background,
     backgroundImage,
     isBackgroundImageUpdating,
