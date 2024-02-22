@@ -164,6 +164,9 @@ export default {
       version: 'Version',
       viewer: 'Viewer',
       writeComment: 'Write a comment...',
+      costControl: 'Cost',
+      costBudget: 'budget',
+      costExpense: 'expense',
     },
 
     action: {

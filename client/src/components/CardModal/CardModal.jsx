@@ -1,3 +1,5 @@
+//
+//
 import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -125,11 +127,12 @@ const CardModal = React.memo(
         [onUpdate],
     )
 
-  const handleCostUpdate = useCallback(
-      (newBudget) => {
+  const handleCostControlUpdate = useCallback(
+      (newBudget, newExpense) => {
           onUpdate({
               eT : {
-                  budget: newBudget
+                  budget: newBudget,
+                  expense: newExpense,
               }
           });
       },
@@ -405,7 +408,17 @@ const CardModal = React.memo(
                         </div>
                     )}
                     { canEdit && (
-                        <Cost defaultValue={eT.budget ? eT.budget: "budget ..."} onUpdate={handleCostUpdate} />
+                        <div className={styles.contentModule}>
+                            <div className={styles.moduleWrapper}>
+                                <Icon name="check square outline" className={styles.moduleIcon} />
+                                <div className={styles.moduleHeader}>{t('common.costControl')}</div>
+                                <Cost
+                                    defaultValueBudget={eT.budget ? eT.budget: ""}
+                                    defaultValueExpense={eT.expense ? eT.expense: ""}
+                                    onUpdate={handleCostControlUpdate}
+                                />
+                            </div>
+                        </div>
                     )}
                     {attachments.length > 0 && (
                         <div className={styles.contentModule}>

@@ -101,12 +101,12 @@ const Tasks = React.memo(({ items, canEdit, onCreate, onUpdate, onMove, onDelete
 });
 
 Tasks.propTypes = {
-  items: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  canEdit: PropTypes.bool.isRequired,
-  onCreate: PropTypes.func.isRequired,
-  onUpdate: PropTypes.func.isRequired,
-  onMove: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+    items: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+    canEdit: PropTypes.bool.isRequired,
+    onCreate: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onMove: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default Tasks;

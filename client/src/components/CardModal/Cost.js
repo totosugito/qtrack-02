@@ -4,67 +4,103 @@ import React, {useCallback, useRef} from "react"
 
 import { useDidUpdate, usePrevious } from '../../lib/hooks';
 import { useField } from '../../hooks';
-import {TextArea} from "semantic-ui-react";
-import TextareaAutosize from "react-textarea-autosize";
-import styles from "./NameField.module.scss";
+
+import { Input, Divider } from 'semantic-ui-react'
 import PropTypes from "prop-types";
+import {useTranslation} from "react-i18next";
 
 
-const Cost = React.memo(({ defaultValue, onUpdate }) => {
-    const prevDefaultValue = usePrevious(defaultValue);
-    const [value, handleChange, setValue] = useField(defaultValue);
+const Cost = React.memo(({ defaultValueBudget, defaultValueExpense, onUpdate }) => {
+    const [t] = useTranslation();
 
-
-    const isFocused = useRef(false);
-
-    const handleFocus = useCallback(() => {
-        isFocused.current = true;
+    const prevDefaultValueBudget = usePrevious(defaultValueBudget)
+    const [valueBudget, handleChangeBudget, setValueBudget] = useField(defaultValueBudget)
+    const isFocusedBudget = useRef(false);
+    const handleFocusBudget = useCallback(() => {
+        isFocusedBudget.current = true;
     }, []);
-
-    const handleKeyDown = useCallback((event) => {
+    const handleKeyDownBudget = useCallback((event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
             event.target.blur();
         }
     }, []);
+    const handleKeyDownExpense = useCallback((event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
 
-    const handleBlur = useCallback(() => {
-        isFocused.current = false;
+            event.target.blur();
+        }
+    }, []);
+    const handleBlurBudget = useCallback(() => {
+        isFocusedBudget.current = false;
 
-        const cleanValue = value.trim();
-
-        if (cleanValue) {
-            if (cleanValue !== defaultValue) {
-                onUpdate(cleanValue);
+        const cleanValueBudget = valueBudget.trim();
+        if (cleanValueBudget) {
+            if (cleanValueBudget !== defaultValueBudget) {
+                onUpdate(cleanValueBudget, prevDefaultValueExpense);
             }
         } else {
-            setValue(defaultValue);
+            setValueBudget(defaultValueBudget);
         }
-    }, [defaultValue, onUpdate, value, setValue]);
+
+    }, [defaultValueBudget, onUpdate, valueBudget, setValueBudget]);
+
+    const prevDefaultValueExpense = usePrevious(defaultValueExpense)
+    const [valueExpense, handleChangeExpense, setValueExpense] = useField(defaultValueExpense)
+    const isFocusedExpense = useRef(false);
+    const handleFocusExpense = useCallback(() => {
+        isFocusedExpense.current = true;
+    }, []);
+    const handleBlurExpense = useCallback(() => {
+        isFocusedExpense.current = false;
+
+        const cleanValueExpense = valueExpense.trim();
+        if (cleanValueExpense) {
+            if (cleanValueExpense !== defaultValueExpense) {
+                onUpdate(prevDefaultValueBudget, cleanValueExpense);
+            }
+        } else {
+            setValueExpense(defaultValueExpense);
+        }
+    }, [defaultValueExpense, onUpdate, valueExpense, setValueExpense]);
 
     useDidUpdate(() => {
-        if (!isFocused.current && defaultValue !== prevDefaultValue) {
-            setValue(defaultValue);
+        if (!isFocusedBudget.current && defaultValueBudget !== prevDefaultValueBudget) {
+            setValueBudget(defaultValueBudget);
         }
-    }, [defaultValue, prevDefaultValue, setValue]);
+        if (!isFocusedExpense.current && defaultValueExpense !== prevDefaultValueExpense) {
+            setValueExpense(defaultValueExpense);
+        }
+    }, [defaultValueBudget, prevDefaultValueBudget, setValueBudget, defaultValueExpense, prevDefaultValueExpense, setValueExpense]);
 
     return (
-        <TextArea
-            as={TextareaAutosize}
-            value={value}
-            spellCheck={false}
-            className={styles.field}
-            onFocus={handleFocus}
-            onKeyDown={handleKeyDown}
-            onChange={handleChange}
-            onBlur={handleBlur}
-        />
+        <>
+            <Input
+                onFocus={handleFocusBudget}
+                onKeyDown={handleKeyDownBudget}
+                onChange={handleChangeBudget}
+                onBlur={handleBlurBudget}
+                label={t('common.costBudget')}
+                value={valueBudget}
+            />
+            <Divider />
+            <Input
+                onFocus={handleFocusExpense}
+                onKeyDown={handleKeyDownExpense}
+                onChange={handleChangeExpense}
+                onBlur={handleBlurExpense}
+                label={t('common.costExpense')}
+                value={valueExpense}
+            />
+
+        </>
     );
 })
 
 Cost.propTypes = {
-    defaultValue: PropTypes.string.isRequired,
+    defaultValueBudget: PropTypes.string.isRequired,
     onUpdate: PropTypes.func.isRequired,
 };
 
