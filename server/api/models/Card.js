@@ -37,7 +37,21 @@ module.exports = {
         },
         eT: {
             type: 'json',
-            defaultsTo: {}
+            defaultsTo: {
+
+            }
+        },
+        gantt: {
+            type: 'json',
+            defaultsTo: {
+                isEnable: false
+            }
+        },
+        cost: {
+            type: 'json',
+            defaultsTo: {
+                isEnable: false
+            }
         },
 
         //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

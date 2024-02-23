@@ -97,6 +97,12 @@ module.exports = {
         eT: {
             type: 'json'
         },
+        gantt: {
+            type: 'json'
+        },
+        cost: {
+            type: 'json'
+        },
     },
 
     exits: {
@@ -187,6 +193,8 @@ module.exports = {
             'stopwatch',
             'isSubscribed',
             'eT',
+            'gantt',
+            'cost'
         ]);
 
         card = await sails.helpers.cards.updateOne

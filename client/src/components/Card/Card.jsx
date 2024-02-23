@@ -30,7 +30,7 @@ const Card = React.memo(
     startDate,
     dueDate,
     stopwatch,
-       eT,
+       eT, gantt, cost,
     coverUrl,
     boardId,
     listId,

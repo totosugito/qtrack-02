@@ -32,7 +32,7 @@ import styles from './CardModal.module.scss';
 import DateTimeRangeStep from "../DateTimeRangeStep";
 import DateTimeRange from "../DateTimeRange"
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined'
-import Cost from './Cost';
+import Cost from './Cost'
 
 const CardModal = React.memo(
   ({
@@ -41,7 +41,7 @@ const CardModal = React.memo(
     startDate,
     dueDate,
     stopwatch,
-      eT,
+      eT, gantt, cost,
     isSubscribed,
     isActivitiesFetching,
     isAllActivitiesFetched,
@@ -126,18 +126,6 @@ const CardModal = React.memo(
         },
         [onUpdate],
     )
-
-  const handleCostControlUpdate = useCallback(
-      (newBudget, newExpense) => {
-          onUpdate({
-              eT : {
-                  budget: newBudget,
-                  expense: newExpense,
-              }
-          });
-      },
-      [onUpdate],
-  )
 
     const handleStopwatchUpdate = useCallback(
         (newStopwatch) => {
@@ -407,19 +395,7 @@ const CardModal = React.memo(
                             </div>
                         </div>
                     )}
-                    { canEdit && (
-                        <div className={styles.contentModule}>
-                            <div className={styles.moduleWrapper}>
-                                <Icon name="check square outline" className={styles.moduleIcon} />
-                                <div className={styles.moduleHeader}>{t('common.costControl')}</div>
-                                <Cost
-                                    defaultValueBudget={eT.budget ? eT.budget: ""}
-                                    defaultValueExpense={eT.expense ? eT.expense: ""}
-                                    onUpdate={handleCostControlUpdate}
-                                />
-                            </div>
-                        </div>
-                    )}
+
                     {attachments.length > 0 && (
                         <div className={styles.contentModule}>
                             <div className={styles.moduleWrapper}>
