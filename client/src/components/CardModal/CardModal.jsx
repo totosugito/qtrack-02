@@ -4,7 +4,7 @@ import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Button, Grid, Icon, Modal } from 'semantic-ui-react';
+import {Button, Grid, Icon, Modal, Progress} from 'semantic-ui-react';
 import { usePopup } from '../../lib/popup';
 import { Markdown } from '../../lib/custom-ui';
 
@@ -32,7 +32,8 @@ import styles from './CardModal.module.scss';
 import DateTimeRangeStep from "../DateTimeRangeStep";
 import DateTimeRange from "../DateTimeRange"
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined'
-
+import CostStep from "./CostStep";
+import Cost from "./Cost";
 
 const CardModal = React.memo(
   ({
@@ -127,6 +128,15 @@ const CardModal = React.memo(
         [onUpdate],
     )
 
+    const handleCostUpdate = useCallback(
+      (newCost) => {
+          onUpdate({
+              cost: newCost
+          })
+      },
+      [onUpdate],
+    )
+
     const handleStopwatchUpdate = useCallback(
         (newStopwatch) => {
             onUpdate({
@@ -170,10 +180,11 @@ const CardModal = React.memo(
     const AttachmentAddPopup = usePopup(AttachmentAddStep);
     const BoardMembershipsPopup = usePopup(BoardMembershipsStep);
     const LabelsPopup = usePopup(LabelsStep);
-      const DueDateEditPopup = usePopup(DateTimeRangeStep);
+    const DueDateEditPopup = usePopup(DateTimeRangeStep);
     const StopwatchEditPopup = usePopup(StopwatchEditStep);
     const CardMovePopup = usePopup(CardMoveStep);
     const DeletePopup = usePopup(DeleteStep);
+    const CostPopup = usePopup(CostStep)
 
     const userIds = users.map((user) => user.id);
     const labelIds = labels.map((label) => label.id);
@@ -396,6 +407,8 @@ const CardModal = React.memo(
                         </div>
                     )}
 
+                    { canEdit && cost.isEnable && <Cost cost={cost} /> }
+
                     {attachments.length > 0 && (
                         <div className={styles.contentModule}>
                             <div className={styles.moduleWrapper}>
@@ -482,6 +495,14 @@ const CardModal = React.memo(
                                         {t('common.attachment')}
                                     </Button>
                                 </AttachmentAddPopup>
+
+                                <CostPopup defaultValue={cost} onUpdate={handleCostUpdate}>
+                                    <Button fluid className={styles.actionButton}>
+                                        <Icon name="calendar alternate outline" className={styles.actionIcon}/>
+                                        {t('common.costControl')}
+                                    </Button>
+                                </CostPopup>
+
                             </div>
                             <div className={styles.actions}>
                                 <span className={styles.actionsTitle}>{t('common.actions')}</span>

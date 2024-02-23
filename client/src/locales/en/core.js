@@ -165,6 +165,7 @@ export default {
       viewer: 'Viewer',
       writeComment: 'Write a comment...',
       costControl: 'Cost',
+      costEnable: 'enable',
       costBudget: 'budget',
       costExpense: 'expense',
     },
