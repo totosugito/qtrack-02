@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+//
+//
+import { createElement } from 'react'
+import { createRoot } from 'react-dom/client'
 
-import store from './store';
-import history from './history';
-import Root from './components/Root';
+import store from './redux/store'
+import history from './history'
+import Root from './components/Root'
 
 import './i18n';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(React.createElement(Root, { store, history }));
+const root = createRoot(document.getElementById('root'))
+root.render( createElement(
+    Root,
+    { store, history }
+))

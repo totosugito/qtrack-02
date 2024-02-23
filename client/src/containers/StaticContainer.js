@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import selectors from '../selectors';
+import selectors from '../redux/selectors';
 import Static from '../components/Static';
 
 const mapStateToProps = (state) => {

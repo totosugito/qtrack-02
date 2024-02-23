@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import omit from 'lodash/omit'
 
 import { push } from '../lib/redux-router';
-import selectors from '../selectors';
-import entryActions from '../entry-actions';
+import selectors from '../redux/selectors';
+import entryActions from '../redux/entry-actions';
 import Paths from '../constants/Paths';
 import { BoardMembershipRoles } from '../constants/Enums';
 import CardModal from '../components/CardModal';

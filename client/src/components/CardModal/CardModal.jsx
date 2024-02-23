@@ -32,7 +32,7 @@ import styles from './CardModal.module.scss';
 import DateTimeRangeStep from "../DateTimeRangeStep";
 import DateTimeRange from "../DateTimeRange"
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined'
-import Cost from './Cost'
+
 
 const CardModal = React.memo(
   ({

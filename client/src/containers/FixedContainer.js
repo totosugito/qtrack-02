@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import selectors from '../selectors';
+import selectors from '../redux/selectors';
 import Fixed from '../components/Fixed';
 
 const mapStateToProps = (state) => {

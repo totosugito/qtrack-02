@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import entryActions from '../entry-actions';
+import entryActions from '../redux/entry-actions';
 import ProjectAddModal from '../components/ProjectAddModal';
 
 const mapStateToProps = ({

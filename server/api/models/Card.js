@@ -44,13 +44,16 @@ module.exports = {
         gantt: {
             type: 'json',
             defaultsTo: {
-                isEnable: false
+                isEnable: false,
+                progress: 0.0
             }
         },
         cost: {
             type: 'json',
             defaultsTo: {
-                isEnable: false
+                isEnable: false,
+                cost: 0.0,
+                expense: 0.0
             }
         },
 

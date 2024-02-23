@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import selectors from '../selectors';
+import selectors from '../redux/selectors';
 import ModalTypes from '../constants/ModalTypes';
 import Project from '../components/Project';
 

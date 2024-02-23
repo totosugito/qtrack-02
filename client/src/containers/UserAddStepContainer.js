@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import entryActions from '../entry-actions';
+import entryActions from '../redux/entry-actions';
 import UserAddStep from '../components/UserAddStep';
 
 const mapStateToProps = ({
