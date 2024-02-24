@@ -20,7 +20,7 @@ import Stopwatch from '../Stopwatch';
 import DateTimeRange from "../DateTimeRange"
 
 import styles from './Card.module.scss';
-
+import Cost from './Cost'
 
 const Card = React.memo(
   ({
@@ -111,6 +111,7 @@ const Card = React.memo(
                 )}
                 <div className={styles.name}>{name}</div>
                 {tasks.length > 0 && <Tasks items={tasks} />}
+                {cost.isEnable > 0 && <Cost cost={cost} />}
                 {(startDate || dueDate || stopwatch || notificationsTotal > 0) && (
                     <span className={styles.attachments}>
                         {notificationsTotal > 0 && (

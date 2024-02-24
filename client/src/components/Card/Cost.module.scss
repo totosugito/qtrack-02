@@ -1,0 +1,20 @@
+:global(#app) {
+
+
+  .progress {
+    padding: 2px 2px 2px 2px;
+    margin: 2px;
+  }
+
+  .progressWrapper {
+    display: inline-block;
+    //padding: 0px 5px 10px 10px;
+    padding-left: 0px;
+    padding-bottom: 20px;
+    vertical-align: top;
+    width: calc(100% - 10px);
+  }
+
+
+
+}
