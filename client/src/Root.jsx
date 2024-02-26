@@ -2,18 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { ReduxRouter } from '../lib/redux-router';
+import { ReduxRouter } from './lib/redux-router';
 
-import Paths from '../constants/Paths';
-import LoginWrapperContainer from '../containers/LoginWrapperContainer';
-import CoreContainer from '../containers/CoreContainer';
-import NotFound from './NotFound';
+import Paths from './constants/Paths';
+import LoginWrapperContainer from './containers/LoginWrapperContainer';
+import CoreContainer from './containers/CoreContainer';
+import NotFound from './components/NotFound';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import 'photoswipe/dist/photoswipe.css';
 import 'easymde/dist/easymde.min.css';
-import '../lib/custom-ui/styles.css';
-import '../styles.module.scss';
+import './lib/custom-ui/styles.css';
+import './styles.module.scss';
+import 'semantic-ui-css/semantic.min.css'
 
 function Root({ store, history }) {
   return (

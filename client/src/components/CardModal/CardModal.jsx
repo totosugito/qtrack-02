@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import {Button, Grid, Icon, Modal, Progress} from 'semantic-ui-react';
 import { usePopup } from '../../lib/popup';
 import { Markdown } from '../../lib/custom-ui';
+import { QuillViewer } from '../../lib';
 
 import { startStopwatch, stopStopwatch } from '../../utils/stopwatch';
 import NameField from './NameField';
@@ -368,9 +369,10 @@ const CardModal = React.memo(
                                                 type="button"
                                                 className={classNames(styles.descriptionText, styles.cursorPointer)}
                                             >
-                                                <Markdown linkStopPropagation linkTarget="_blank">
-                                                    {description}
-                                                </Markdown>
+                                                {/*<Markdown linkStopPropagation linkTarget="_blank">*/}
+                                                {/*    {description}*/}
+                                                {/*</Markdown>*/}
+                                                <QuillViewer content={description}/>
                                             </button>
                                         ) : (
                                             <button type="button" className={styles.descriptionButton}>
@@ -382,9 +384,10 @@ const CardModal = React.memo(
                                     </DescriptionEdit>
                                 ) : (
                                     <div className={styles.descriptionText}>
-                                        <Markdown linkStopPropagation linkTarget="_blank">
-                                            {description}
-                                        </Markdown>
+                                        {/*<Markdown linkStopPropagation linkTarget="_blank">*/}
+                                        {/*    {description}*/}
+                                        {/*</Markdown>*/}
+                                        <QuillViewer content={description}/>
                                     </div>
                                 )}
                             </div>
@@ -555,11 +558,13 @@ const CardModal = React.memo(
 
     return (
         <Modal open closeIcon centered={false} onClose={handleClose} className={styles.wrapper}>
-            {canEdit ? (
-                <AttachmentAddZone onCreate={onAttachmentCreate}>{contentNode}</AttachmentAddZone>
-            ) : (
-                contentNode
-            )}
+            {/*{canEdit ? (*/}
+            {/*    <AttachmentAddZone onCreate={onAttachmentCreate}>{contentNode}</AttachmentAddZone>*/}
+            {/*) : (*/}
+            {/*    contentNode*/}
+            {/*)}*/}
+
+            {contentNode}
         </Modal>
     )
 })

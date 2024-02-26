@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 
 import store from './redux/store'
 import history from './history'
-import Root from './components/Root'
+import Root from './Root'
 
 import './i18n';
 

@@ -60,7 +60,11 @@ module.exports = {
         },
         eT: {
             type: 'json',
-            defaultsTo: {}
+            defaultsTo: {
+                lat: 0.0,
+                lon: 0.0,
+                progress: 0.0
+            }
         },
         //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
         //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
