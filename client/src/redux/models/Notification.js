@@ -78,9 +78,9 @@ export default class extends BaseModel {
     }
 
     deleteRelated() {
-        if (this.action && !this.action.isInCard) {
-          this.action.delete();
-        }
+        // if (this.action && !this.action.isInCard) {
+        //   this.action.delete();
+        // }
     }
 
     deleteWithRelated() {

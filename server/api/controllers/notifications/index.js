@@ -1,3 +1,5 @@
+//
+//
 module.exports = {
     async fn() {
         await sails.helpers.utils.logApi(this.req.isSocket, `GET /api/notifications : notifications/index`)

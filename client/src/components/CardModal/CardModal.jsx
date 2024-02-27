@@ -91,8 +91,11 @@ const CardModal = React.memo(
     onClose,
 }) => {
     console.log('///*** ... CardModal:' + name)
+      cost = (cost === undefined) || (cost.isEnable === undefined) ? {
+          isEnable: false
+      }: cost
 
-    const [t] = useTranslation()
+      const [t] = useTranslation()
     const isGalleryOpened = useRef(false)
 
     const handleToggleStopwatchClick = useCallback(() => {
@@ -574,6 +577,9 @@ CardModal.propTypes = {
     description: PropTypes.string,
     startDate: PropTypes.instanceOf(Date),
     dueDate: PropTypes.instanceOf(Date),
+    eT: PropTypes.array.isRequired,
+    gantt:PropTypes.array.isRequired,
+    cost: PropTypes.array.isRequired,
     stopwatch: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     isSubscribed: PropTypes.bool.isRequired,
     isActivitiesFetching: PropTypes.bool.isRequired,
@@ -629,6 +635,12 @@ CardModal.defaultProps = {
     startDate: undefined,
     dueDate: undefined,
     stopwatch: undefined,
+    cost: {
+        isEnable: false
+    },
+    gantt: {
+        isEnable: false
+    },
 }
 
 export default CardModal

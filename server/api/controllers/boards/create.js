@@ -1,3 +1,5 @@
+//
+//
 const util = require('util');
 const { v4: uuid } = require('uuid');
 
@@ -72,37 +74,37 @@ module.exports = {
         let boardImport;
         if (inputs.importType && Object.values(Board.ImportTypes).includes(inputs.importType)) {
             const upload = util.promisify((options, callback) =>
-              this.req.file('importFile').upload(options, (error, files) => callback(error, files)),
+                this.req.file('importFile').upload(options, (error, files) => callback(error, files)),
             );
 
             let files;
             try {
-              files = await upload({
-                saveAs: uuid(),
-                maxBytes: null,
-              });
+                files = await upload({
+                    saveAs: uuid(),
+                    maxBytes: null,
+                });
             } catch (error) {
-              return exits.uploadError(error.message); // TODO: add error
+                return exits.uploadError(error.message); // TODO: add error
             }
 
             if (files.length === 0) {
-              throw Errors.NO_IMPORT_FILE_WAS_UPLOADED;
+                throw Errors.NO_IMPORT_FILE_WAS_UPLOADED;
             }
 
             const file = _.last(files);
 
             if (inputs.importType === Board.ImportTypes.TRELLO) {
-              boardImport = {
-                type: inputs.importType,
-                board: await sails.helpers.boards.processUploadedTrelloImportFile(file),
-              };
+                boardImport = {
+                    type: inputs.importType,
+                    board: await sails.helpers.boards.processUploadedTrelloImportFile(file),
+                };
             }
         }
 
         const { board, boardMembership } = await sails.helpers.boards.createOne.with({
             values: {
-              ...values,
-              project,
+                ...values,
+                project,
             },
             import: boardImport,
             user: currentUser,

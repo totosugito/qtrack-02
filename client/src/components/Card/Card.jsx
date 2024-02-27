@@ -58,7 +58,11 @@ const Card = React.memo(
     onLabelMove,
     onLabelDelete,
   }) => {
-    console.log('///*** ... Card:' + name)
+    console.log('///*** ... Card:' + cost)
+
+    cost = (cost === undefined) || (cost.isEnable === undefined) ? {
+        isEnable: false
+    }: cost
     const nameEdit = useRef(null);
 
     const handleClick = useCallback(() => {
@@ -111,7 +115,7 @@ const Card = React.memo(
                 )}
                 <div className={styles.name}>{name}</div>
                 {tasks.length > 0 && <Tasks items={tasks} />}
-                {cost.isEnable > 0 && <Cost cost={cost} />}
+                {cost.isEnable && <Cost cost={cost} />}
                 {(startDate || dueDate || stopwatch || notificationsTotal > 0) && (
                     <span className={styles.attachments}>
                         {notificationsTotal > 0 && (
@@ -230,6 +234,9 @@ Card.propTypes = {
     name: PropTypes.string.isRequired,
     startDate: PropTypes.instanceOf(Date),
     dueDate: PropTypes.instanceOf(Date),
+    eT: PropTypes.array.isRequired,
+    gantt:PropTypes.array.isRequired,
+    cost: PropTypes.array.isRequired,
     stopwatch: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     coverUrl: PropTypes.string,
     boardId: PropTypes.string.isRequired,
@@ -264,6 +271,12 @@ Card.propTypes = {
 Card.defaultProps = {
     startDate: undefined,
     dueDate: undefined,
+    cost: {
+      isEnable: false
+    },
+    gantt: {
+        isEnable: false
+    },
     stopwatch: undefined,
     coverUrl: undefined,
 }
