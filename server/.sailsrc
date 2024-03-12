@@ -2,8 +2,14 @@
     "generators": {
         "modules": {}
     },
+    "hooks": {
+        "blueprints": false,
+        "grunt": false,
+        "i18n": false,
+        "session": false
+    },
     "paths": {
-        "public": "assets"
+        "public": "public"
     },
     "_generatedWith": {
         "sails": "1.5.7",

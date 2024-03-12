@@ -90,13 +90,12 @@ const CardModal = React.memo(
     onCommentActivityDelete,
     onClose,
 }) => {
-    console.log('///*** ... CardModal:' + name)
-      cost = (cost === undefined) || (cost.isEnable === undefined) ? {
-          isEnable: false
-      }: cost
+
+      console.log('///*** ... CardModal:' + name)
 
       const [t] = useTranslation()
-    const isGalleryOpened = useRef(false)
+
+      const isGalleryOpened = useRef(false)
 
     const handleToggleStopwatchClick = useCallback(() => {
         onUpdate({

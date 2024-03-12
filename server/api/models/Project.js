@@ -66,6 +66,11 @@ module.exports = {
                 progress: 0.0
             }
         },
+        tags: {
+            type: 'json',
+            columnType: 'array',
+            defaultsTo: []
+        },
         //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
         //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
         //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

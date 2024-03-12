@@ -52,7 +52,7 @@ module.exports = {
             type: 'json',
             defaultsTo: {
                 isEnable: false,
-                cost: 0.0,
+                budget: 0.0,
                 expense: 0.0
             }
         },

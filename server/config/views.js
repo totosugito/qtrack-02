@@ -36,7 +36,7 @@ module.exports.views = {
     *                                                                          *
     ***************************************************************************/
 
-    // layout: 'layouts/layout'
-    layout: 'layouts/layout' // for server API apps
+    layout: false,
+    locals: { BASE_URL: process.env.BASE_URL },
 
 };

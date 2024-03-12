@@ -56,6 +56,9 @@ module.exports = {
         eT: {
             type: 'json'
         },
+        tags: {
+            type: 'json'
+        },
     },
 
     exits: {
@@ -81,7 +84,7 @@ module.exports = {
             throw Errors.PROJECT_NOT_FOUND; // Forbidden
         }
 
-        const values = _.pick(inputs, ['name', 'background', 'backgroundImage', 'eT']);
+        const values = _.pick(inputs, ['name', 'background', 'backgroundImage', 'eT', 'tags']);
 
         project = await sails.helpers.projects.updateOne.with({
             values,

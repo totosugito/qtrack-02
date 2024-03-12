@@ -17,15 +17,18 @@ module.exports = {
         success: {
           description: 'All done.',
         },
-
     },
 
 
     fn: async function (inputs) {
-        if (inputs.isSocket)
-            sails.log('socket -> ' + inputs.msg)
-        else
-            sails.log('http -> ' + inputs.msg)
+        let stringArray = ["silly", "verbose", "info"]
+
+        if (stringArray.indexOf(sails.config.log.level) > -1) {
+            if (inputs.isSocket)
+                sails.log('socket -> ' + inputs.msg)
+            else
+                sails.log('http -> ' + inputs.msg)
+        }
     }
 
 }

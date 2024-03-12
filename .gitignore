@@ -7,6 +7,6 @@ server/package-lock.json
 
 
 ## client
-client/node_modules
-client/build
-client/package-lock.json
+client_planka/node_modules
+client_planka/build
+client_planka/package-lock.json

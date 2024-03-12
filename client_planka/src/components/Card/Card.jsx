@@ -58,11 +58,7 @@ const Card = React.memo(
     onLabelMove,
     onLabelDelete,
   }) => {
-    console.log('///*** ... Card:' + cost)
-
-    cost = (cost === undefined) || (cost.isEnable === undefined) ? {
-        isEnable: false
-    }: cost
+      console.log('///*** ... Card:' + cost)
     const nameEdit = useRef(null);
 
     const handleClick = useCallback(() => {
@@ -234,9 +230,9 @@ Card.propTypes = {
     name: PropTypes.string.isRequired,
     startDate: PropTypes.instanceOf(Date),
     dueDate: PropTypes.instanceOf(Date),
-    eT: PropTypes.array.isRequired,
-    gantt:PropTypes.array.isRequired,
-    cost: PropTypes.array.isRequired,
+    eT: PropTypes.object,
+    gantt:PropTypes.object,
+    cost: PropTypes.array, // eslint-disable-line react/forbid-prop-types
     stopwatch: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     coverUrl: PropTypes.string,
     boardId: PropTypes.string.isRequired,

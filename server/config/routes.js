@@ -98,24 +98,14 @@ module.exports.routes = {
         skipAssets: false,
     },
 
-    /***************************************************************************
-    *                                                                          *
-    * More custom routes here...                                               *
-    * (See https://sailsjs.com/config/routes for examples.)                    *
-    *                                                                          *
-    * If a request to a URL doesn't match any of the routes in this file, it   *
-    * is matched against "shadow routes" (e.g. blueprint routes).  If it does  *
-    * not match any of those, it is matched against static assets.             *
-    *                                                                          *
-    ***************************************************************************/
-    'GET /api/test' : 'test/server-check',
-
-    // 'GET /': {
-    //     view: 'homepage',
-    //     skipAssets: false,
-    // },
-    '/': {
-        view: 'homepage',
-        // skipAssets: false,
+    'GET /*': {
+        view: 'index',
+        skipAssets: true,
     },
+
+    /***************************************************************************
+     *                                                                          *
+     * More custom routes here...                                               *
+     ***************************************************************************/
+    'GET /api/test' : 'test/server-check',
 }

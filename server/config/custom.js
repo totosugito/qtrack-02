@@ -19,6 +19,7 @@
      *                                                                          *
      ***************************************************************************/
      baseUrl: process.env.BASE_URL,
+     databaseUrl: process.env.DATABASE_URL,
 
      tokenExpiresIn: parseInt(process.env.TOKEN_EXPIRES_IN, 10) || 365,
      userAvatarsPath: path.join(sails.config.paths.public, 'user-avatars'),
