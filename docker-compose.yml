@@ -1,0 +1,42 @@
+version: "1.0"
+
+services:
+
+    sails_app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file: ./.env
+        restart: on-failure
+        depends_on:
+            - mongo_docker
+        volumes:
+            - user-avatars:/app/public/user-avatars
+            - project-background-images:/app/public/project-background-images
+            - attachments:/app/private/attachments
+        ports:
+            - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+        environment:
+            - DB_HOST=mongo_docker
+            - DB_PORT=$MONGODB_DOCKER_PORT
+            - DB_NAME=$MONGODB_NAME
+            - ENV=$NODE_ENV
+            - BASE_URL=$BASE_URL
+            - REACT_APP_SERVER_BASE_URL=$BASE_URL
+        stdin_open: true
+        tty: true
+
+    mongo_docker:
+        image: mongo:4.4.6
+        restart: on-failure
+        env_file: ./.env
+        ports:
+            - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
+        volumes:
+            - db_test:/data/db
+
+volumes:
+    user-avatars:
+    project-background-images:
+    attachments:
+    db_test:
