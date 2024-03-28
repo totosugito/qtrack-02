@@ -1,0 +1,470 @@
+{
+  "initial": {
+    "zoom": 4,
+    "center": [
+      -3.9519408561575817,
+      119.88281250000001
+    ]
+  },
+  "wells": {
+    "type": "FeatureCollection",
+    "crs": {
+      "type": "name",
+      "properties": {
+        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+      }
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Kangean",
+          "desc": "Seismik 3D Zona Transisi 616 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            115.26855468750001,
+            -6.937332868878443
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#808080"
+        },
+        "properties": {
+          "name": "WK Bunga",
+          "desc": "Seismik 3D Km²",
+          "type": "Unbundling"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            115.81787109375001,
+            -7.111794602472421
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK South Sesulu",
+          "desc": "Seismik 3D Arwana 1166 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            113.91723632812501,
+            -7.068185318145826
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Pangkah",
+          "desc": "Seismik 3D 500 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.82958984375001,
+            -7.046379130937701
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Pertamina EP",
+          "desc": "Seismik 3D Kepuh 500 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            107.62207031250001,
+            -6.533645130567532
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK Citarum",
+          "desc": "Seismik 2D 300 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            106.270751953125,
+            -6.238855305536241
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK Pertamina EP",
+          "desc": "Seismik 2D Renantera 112 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            104.71069335937501,
+            -4.576424935853638
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK South Jambi 'B'",
+          "desc": "Seismik 2D Middle Area 451 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            104.73266601562501,
+            -3.71078200434872
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK Jabung",
+          "desc": "Seismik 2D 2D Eastern Jabung 250 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            104.66674804687501,
+            -2.9540126939036564
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Berau",
+          "desc": "Seismik 3D North Ubadari 725 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            133.59375000000003,
+            -2.85526278436657
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#BDB76B"
+        },
+        "properties": {
+          "name": "WK Simenggaris",
+          "desc": "Suvey Passive Seismik",
+          "type": "Non Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            118.08105468750001,
+            4.784468966579362
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#808080"
+        },
+        "properties": {
+          "name": "WK Akia",
+          "desc": "Seismik 3D 1150 Km²",
+          "type": "Unbundling"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            118.74023437500001,
+            3.995780512963038
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK Pertamina EP",
+          "desc": "Seismik 2D Bungalun Kariorang 330 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            117.68554687500001,
+            1.7136116598836224
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK South Sesulu",
+          "desc": "Seismik 3D High-Res 100 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            116.58691406250001,
+            -1.8893059628373186
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Sengkang",
+          "desc": "Seismik 3D Tosora Area 112 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.10253906250001,
+            -4.34641127533318
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK East Natuna",
+          "desc": "Seismik 3D Arwana 1166 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            111.00585937500001,
+            8.711358875426512
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#BDB76B"
+        },
+        "properties": {
+          "name": "WK Pertamina EP",
+          "desc": "Suvey Thermal Anomaly",
+          "type": "Non Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            112.10449218750001,
+            4.5654735507102915
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Selat Panjang",
+          "desc": "Seismik 3D 300 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            102.96386718750001,
+            -0.17578097424708533
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Corridor",
+          "desc": "Seismik 3D 179 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            103.93066406250001,
+            -1.669685500986571
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "Belida",
+          "desc": "Seismik 3D Sungai Anggur 47 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            105.29296875,
+            -3.2502085616531686
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Rokan",
+          "desc": "Seismik 3D Balam 303 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            100.23925781250001,
+            1.1864386394452024
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#FF4500"
+        },
+        "properties": {
+          "name": "WK Jabung",
+          "desc": "Seismik 3D Ketemu 121 Km²",
+          "type": "2D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            100.986328125,
+            -0.4394488164139641
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#808080"
+        },
+        "properties": {
+          "name": "WK South Betung",
+          "desc": "Seismik 3D Pauman dan Malapan",
+          "type": "Unbundling"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            101.77734375000001,
+            -2.2406396093827206
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK Korinci Baru",
+          "desc": "Seismik 2D 128,51 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            101.73339843750001,
+            -0.6591651462894504
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "style": {
+          "fill":"#32CD32"
+        },
+        "properties": {
+          "name": "WK South CPP",
+          "desc": "Seismik 2D 300 Km²",
+          "type": "3D Seismic"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            100.94238281250001,
+            0.7031073524364909
+          ]
+        }
+      }
+    ]
+  }
+}

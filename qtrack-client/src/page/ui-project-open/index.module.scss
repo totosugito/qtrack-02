@@ -1,0 +1,44 @@
+:global(#app) {
+  @import "../../assets/theme/theme";
+  .wrapper {
+    height: 100%;
+    //margin-top: -230px;
+  }
+  .wrapperFlex {
+    display: flex;
+  }
+  .wrapperProject {
+    margin-top: 98px;
+  }
+  .messageIcon {
+    margin-top: -84px;
+  }
+  .messageTitle {
+    font-size: 32px;
+    margin: 24px 0 8px;
+  }
+
+  .messageContent {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 4px 0 0;
+    text-align: center;
+  }
+  .message {
+    margin-top: 50px;
+    align-content: space-between;
+    align-items: center;
+    color: $textSecondaryColor;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .wrapperLoader {
+    position: relative;
+  }
+  .wrapperBoard {
+    margin-top: 5px;
+    margin-left: -8px;
+  }
+}

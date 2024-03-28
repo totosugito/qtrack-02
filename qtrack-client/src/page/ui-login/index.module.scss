@@ -1,0 +1,42 @@
+:global(#app) {
+  .cover {
+    background: url("../../assets/images/cover.jpg") center / cover;
+  }
+
+  .descriptionSubtitle {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 8px;
+  }
+
+  .descriptionTitle {
+    font-size: 52px;
+    margin-bottom: 8px;
+  }
+
+  .wrapper {
+    background: #fff;
+  }
+  .fullHeight {
+    height: 100vh;
+  }
+
+  .fullHeightPaddingFix {
+    height: calc(100% + 1rem);
+  }
+  .descriptionWrapper {
+    padding: 60px 0 0 80px;
+    position: relative;
+  }
+
+  .descriptionWrapperOverlay {
+    background: rgba(33, 33, 33, 0.5);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+}

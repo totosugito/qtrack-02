@@ -1,0 +1,12 @@
+:global(#app) {
+  .container {
+    overflow-x: auto;
+    width: 1200px;
+  }
+
+  .gantt {
+    padding: 0 5px;
+    height: 100%;
+    width: 1300px;
+  }
+}

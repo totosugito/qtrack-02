@@ -1,0 +1,62 @@
+:global(#app) {
+  .button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 100%;
+    outline: none;
+    padding: 0;
+  }
+
+  .wrapper {
+    margin-right: 4px;
+    background: #dce0e4;
+    border: none;
+    border-radius: 3px;
+    color: #6a808b;
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    outline: none;
+    text-align: left;
+    transition: background 0.3s ease;
+    vertical-align: top;
+  }
+
+  .wrapperHoverable:hover {
+    opacity: 0.75;
+  }
+
+  .text {
+    color: #6b808c;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    line-height: 20px;
+    margin: 0 8px 4px 0;
+    text-transform: uppercase;
+  }
+
+  /* Sizes */
+
+  .wrapperTiny {
+    font-size: 12px;
+    line-height: 20px;
+    max-width: 176px;
+    padding: 0 6px;
+  }
+
+  .wrapperSmall {
+    font-size: 12px;
+    line-height: 20px;
+    max-width: 176px;
+    padding: 2px 8px;
+  }
+
+  .wrapperMedium {
+    font-size: 14px;
+    line-height: 32px;
+    max-width: 230px;
+    padding: 0 12px;
+  }
+}

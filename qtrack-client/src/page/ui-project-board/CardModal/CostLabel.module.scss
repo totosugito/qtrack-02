@@ -1,0 +1,26 @@
+:global(#app) {
+  .contentModule {
+    margin-bottom: 24px;
+  }
+  .moduleWrapper {
+    margin: 0 0 0 40px;
+    position: relative;
+  }
+  .moduleHeader {
+    color: #17394d;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 4px;
+    padding: 8px 0;
+  }
+  .progress {
+
+  }
+  .progressWrapper {
+    display: inline-block;
+    padding: 3px 0;
+    vertical-align: top;
+    width: 100%;
+  }
+}
