@@ -24,11 +24,11 @@ FROM node:lts  AS client
 
 WORKDIR /app
 
-COPY client_planka/package.json  ./
+COPY qtrack-client/package.json  ./
 
 RUN npm install
 
-COPY client_planka .
+COPY qtrack-client .
 
 RUN DISABLE_ESLINT_PLUGIN=true npm run build
 

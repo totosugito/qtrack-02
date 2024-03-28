@@ -1,12 +1,11 @@
-version: "1.0"
+#version: "3.7"
 
 services:
-
     sails_app:
         build:
             context: .
             dockerfile: Dockerfile
-        env_file: ./.env
+        env_file: ./server/.env
         restart: on-failure
         depends_on:
             - mongo_docker
@@ -29,7 +28,7 @@ services:
     mongo_docker:
         image: mongo:4.4.6
         restart: on-failure
-        env_file: ./.env
+        env_file: ./server/.env
         ports:
             - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
         volumes:

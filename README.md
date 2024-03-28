@@ -4,6 +4,10 @@
 - client : react
 
 # qtrack-02 : docker files are
-.env
 Dockerfile
 docker-compose.yml
+
+# run docker
+docker stop ID
+docker system prune -a
+docker-compose --env-file ./server/.env up
