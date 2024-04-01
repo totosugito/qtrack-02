@@ -60,4 +60,5 @@ VOLUME /app/private/attachments
 
 EXPOSE 1337
 
-CMD [ "npm", "run", "server" ]
+#CMD [ "npm", "run", "server" ]
+CMD [ "npm", "run", "build" ]

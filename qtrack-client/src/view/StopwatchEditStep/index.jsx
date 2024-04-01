@@ -117,7 +117,7 @@ const StopwatchEditStep = React.memo(({ defaultValue, onUpdate, onBack, onClose 
           <div className={styles.fieldWrapper}>
             <div className={styles.fieldBox}>
               <div className={styles.text}>{t('common.hours')}</div>
-              <Input.Mask
+              <Input
                 ref={hoursField}
                 name="hours"
                 value={data.hours}
@@ -129,7 +129,7 @@ const StopwatchEditStep = React.memo(({ defaultValue, onUpdate, onBack, onClose 
             </div>
             <div className={styles.fieldBox}>
               <div className={styles.text}>{t('common.minutes')}</div>
-              <Input.Mask
+              <Input
                 ref={minutesField}
                 name="minutes"
                 value={data.minutes}
@@ -141,7 +141,7 @@ const StopwatchEditStep = React.memo(({ defaultValue, onUpdate, onBack, onClose 
             </div>
             <div className={styles.fieldBox}>
               <div className={styles.text}>{t('common.seconds')}</div>
-              <Input.Mask
+              <Input
                 ref={secondsField}
                 name="seconds"
                 value={data.seconds}

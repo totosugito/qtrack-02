@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react';
 import { usePopup } from '../../lib/use-popup';
 
+import styles from './index.module.scss';
 import AddStep from './AddStep';
 import ActionsStep from './ActionsStep';
 import User from '../User';
-
-import styles from './index.module.scss';
 
 const Memberships = React.memo(
   ({

@@ -4,10 +4,9 @@ import {useTranslation} from 'react-i18next';
 import {Button, Divider, Header, Tab} from 'semantic-ui-react';
 import {usePopup} from '../../../lib/use-popup';
 
+import styles from './GeneralPane.module.scss';
 import InformationEdit from './InformationEdit';
 import DeleteStep from '../../DeleteStep';
-
-import styles from './GeneralPane.module.scss';
 
 const GeneralPane = React.memo(({name, eT, tags, onUpdate, onDelete}) => {
   const [t] = useTranslation();

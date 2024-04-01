@@ -5,26 +5,20 @@ import BaseAuth from "../base-auth";
 import Projects from "./Projects";
 import {useTranslation} from "react-i18next";
 
-const UiProjectList = React.memo(
-    ({
-     }) => {
-        useEffect(() => {
-            document.title = "Project List";
-        }, []);
+function UiProjectList() {
+    useEffect(() => {
+        document.title = "Project List";
+    }, []);
 
-        const [t] = useTranslation();
-        return (
-            <>
-                <BaseAuth>
-                    <Projects/>
-                </BaseAuth>
-            </>
-        )
-    })
-UiProjectList.propTypes = {
+    const [t] = useTranslation();
+    return (
+        <>
+            <BaseAuth>
+                <Projects/>
+            </BaseAuth>
+        </>
+    )
 }
-
-UiProjectList.defaultProps = {};
 
 const mapStateToProps = (state) => {
     return {

@@ -1,6 +1,6 @@
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Trans, useTranslation} from 'react-i18next';
@@ -50,6 +50,10 @@ const Projects = React.memo(({items, canAdd, onAdd, onUsersClick}) => {
     }
     setProjects(projects_)
   }
+
+  useEffect(() => {
+    setProjects(items)
+  }, [items])
 
   return (
     <div>
@@ -137,7 +141,6 @@ Projects.propTypes = {
 const mapStateToProps = (state) => {
   const {isAdmin} = selectors.selectCurrentUser(state);
   const projects = selectors.selectProjectsForCurrentUser(state);
-
   return {
     items: projects,
     canAdd: isAdmin,

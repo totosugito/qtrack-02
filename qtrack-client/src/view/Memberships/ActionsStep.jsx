@@ -3,12 +3,11 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'semantic-ui-react';
-
 import { useSteps } from '../../lib/hooks-ui';
-import User from '../User';
-import DeleteStep from '../DeleteStep';
 
 import styles from './ActionsStep.module.scss';
+import User from '../User';
+import DeleteStep from '../DeleteStep';
 
 const StepTypes = {
   EDIT_PERMISSIONS: 'EDIT_PERMISSIONS',

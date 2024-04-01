@@ -1,11 +1,11 @@
 import selectors from "../../redux/selectors";
 import {connect} from "react-redux";
 import classNames from "classnames";
-import styles from "./index.module.scss";
 import React from "react";
 import {Trans, useTranslation} from "react-i18next";
-import BaseProject from "../base-project";
 import {Icon} from "semantic-ui-react";
+import styles from "./index.module.scss";
+import BaseProject from "../base-project";
 import BoardToolbar from "../../view/BoardToolbar";
 
 function UiProjectOpen({projectId, board}) {

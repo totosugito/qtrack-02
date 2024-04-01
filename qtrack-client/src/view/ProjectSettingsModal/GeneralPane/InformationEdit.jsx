@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import {Button, Form, Input} from 'semantic-ui-react';
-import styles from './InformationEdit.module.scss';
 import classNames from "classnames";
 import {ChipInput} from "../../../lib";
+import styles from './InformationEdit.module.scss';
 
 const InformationEdit = React.memo(({defaultData, onUpdate}) => {
   const [t] = useTranslation();

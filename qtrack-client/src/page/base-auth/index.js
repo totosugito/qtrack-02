@@ -1,16 +1,17 @@
 import MuiDrawer from '@mui/material/Drawer';
-import DrawerWeb from "./Views/drawer-web";
 import React from "react";
-import styles from "./index.module.scss";
 import {Trans, useTranslation} from "react-i18next";
-import AuthHeader from "./AuthHeader";
-import ModalTypes from "../../constants/ModalTypes";
-import UserSettingsModal from "./AuthHeader/UserSettingsModal";
-import selectors from "../../redux/selectors";
 import {useSelector} from "react-redux";
 import {Button, Icon, Loader} from "semantic-ui-react";
 import {styled} from "@mui/material/styles";
 import classNames from "classnames";
+
+import styles from "./index.module.scss";
+import DrawerWeb from "./Views/drawer-web";
+import AuthHeader from "./AuthHeader";
+import ModalTypes from "../../constants/ModalTypes";
+import UserSettingsModal from "./AuthHeader/UserSettingsModal";
+import selectors from "../../redux/selectors";
 
 const drawerWidth = 240
 const openedMixin = (theme) => ({

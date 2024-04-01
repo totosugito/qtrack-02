@@ -1,17 +1,17 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
-import {Button, Modal, Tab} from 'semantic-ui-react';
+import {Modal, Tab} from 'semantic-ui-react';
+import {bindActionCreators} from "redux";
+import classNames from "classnames";
+import {connect} from "react-redux";
 
+import styles from '../index.module.scss';
 import ManagersPane from './ManagersPane';
 import BackgroundPane from './BackgroundPane';
 import GeneralPane from './GeneralPane';
 import selectors from "../../redux/selectors";
-import {bindActionCreators} from "redux";
 import entryActions from "../../redux/entry-actions";
-import {connect} from "react-redux";
-import styles from '../index.module.scss';
-import classNames from "classnames";
 
 const ProjectSettingsModal = React.memo(
   ({

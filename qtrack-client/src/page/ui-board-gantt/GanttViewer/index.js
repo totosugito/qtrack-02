@@ -1,13 +1,15 @@
 import React, {useRef, useState} from "react";
 import {
   Edit,
+  ExcelExport,
   Filter,
-  Selection,
   GanttComponent,
   Inject,
+  PdfExport,
   Resize,
+  Selection,
   Sort,
-  Toolbar, PdfExport, ExcelExport,
+  Toolbar,
 } from "@syncfusion/ej2-react-gantt";
 
 import '@syncfusion/ej2-base/styles/material.css';
@@ -42,7 +44,7 @@ registerLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWGhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnx
 const GanttViewer = React.memo(({boardId, gantt}) => {
   const [t] = useTranslation();
   let ganttChart;
-  const [gantt1, setGantt1] = useState([])
+  const [gantt1, setGantt1] = useState(gantt)
   const ganttRef = useRef(null);
 
   const toolbarClick = (args) => {
@@ -73,8 +75,8 @@ const GanttViewer = React.memo(({boardId, gantt}) => {
         if (sheets.length) {
           const rows = utils.sheet_to_json(wb.Sheets[sheets[0]]);
           let ltt = new LTT(rows, {
-            key_id: 'TaskID',
-            key_parent: 'ParentID',
+            key_id: 'TaskId',
+            key_parent: 'ParentId',
           });
           let tree = ltt.GetTree();
           setGantt1(tree);
@@ -104,13 +106,13 @@ const GanttViewer = React.memo(({boardId, gantt}) => {
             </div>
           </div>
 
-          {/*<div className={stylesView.toolbarItemSmall}>*/}
-          {/*  <div className={classNames(stylesView.toolbarButton)}>*/}
-          {/*    <input id="files" type="file" name="file" className="custom-file-input"*/}
-          {/*           required onChange={handleImport}*/}
-          {/*           accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
+          <div className={stylesView.toolbarItemSmall}>
+            <div className={classNames(stylesView.toolbarButton)}>
+              <input id="files" type="file" name="file" className="custom-file-input"
+                     required onChange={handleImport}
+                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
+            </div>
+          </div>
 
           <div className={stylesView.toolbarItemSmall}>
             <div className={classNames(stylesView.toolbarButton)}
@@ -135,7 +137,7 @@ const GanttViewer = React.memo(({boardId, gantt}) => {
 
       <div className={classNames(styles.gantt)}>
         {gantt !== undefined &&
-          <GanttComponent ref={ganttRef => ganttChart = ganttRef} dataSource={gantt} timelineSettings={timelineSettings}
+          <GanttComponent ref={ganttRef => ganttChart = ganttRef} dataSource={gantt1} timelineSettings={timelineSettings}
             // treeColumnIndex={1}
                           allowResizing={true}
                           allowSelection={true}

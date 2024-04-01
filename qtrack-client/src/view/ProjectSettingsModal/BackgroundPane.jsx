@@ -8,11 +8,10 @@ import { useTranslation } from 'react-i18next';
 import { Button, Image } from 'semantic-ui-react';
 import { FilePicker } from '../../lib';
 
-import ProjectBackgroundGradients from '../../constants/ProjectBackgroundGradients';
-import { ProjectBackgroundTypes } from '../../constants/Enums';
-
 import styles from './BackgroundPane.module.scss';
 import globalStyles from '../../styles.module.scss';
+import ProjectBackgroundGradients from '../../constants/ProjectBackgroundGradients';
+import { ProjectBackgroundTypes } from '../../constants/Enums';
 
 const BackgroundPane = React.memo(
   ({ item, imageCoverUrl, isImageUpdating, onUpdate, onImageUpdate, onImageDelete }) => {

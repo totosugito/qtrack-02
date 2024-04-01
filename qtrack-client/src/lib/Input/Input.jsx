@@ -1,7 +1,7 @@
 import { Input as SemanticUIInput } from 'semantic-ui-react';
 
 import InputPassword from './InputPassword';
-// import InputMask from './InputMask';
+// import InputMask from 'react-input-mask';
 
 export default class Input extends SemanticUIInput {
   static Password = InputPassword;
