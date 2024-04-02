@@ -40,6 +40,8 @@ import GanttCardLabelStep from "../../../view/GanttCardLabelStep";
 import CostStep from "./CostStep";
 import CostLabel from "./CostLabel";
 import CardModeStep from "./CardModeStep";
+import {makeSelectCardByBoardId, selectCardByBoardId} from "../../../redux/selectors/lists";
+import {selectCardsForCurrentBoard, selectCardsForCurrentBoardWithGanttEnable} from "../../../redux/selectors/boards";
 
 const CardModal = React.memo(
   ({
@@ -672,6 +674,7 @@ const mapStateToProps = (state) => {
   const currentUserMembership = selectors.selectCurrentUserMembershipForCurrentBoard(state);
 
   const {
+    id,
     gantt,
     cost,
     name,
@@ -692,6 +695,9 @@ const mapStateToProps = (state) => {
   const tasks = selectors.selectTasksForCurrentCard(state);
   const attachments = selectors.selectAttachmentsForCurrentCard(state);
   const activities = selectors.selectActivitiesForCurrentCard(state);
+
+  const cardsInBoard = selectors.selectCardsForCurrentBoardWithGanttEnable(state);
+  console.log(JSON.stringify(cardsInBoard))
 
   let isCurrentUserEditor = false;
   let isCurrentUserEditorOrCanComment = false;

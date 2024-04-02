@@ -182,6 +182,10 @@ export default class extends BaseModel {
   getOrderedListsQuerySet() {
     return this.lists.orderBy('position');
   }
+  getCardsByGanttEnable(status) {
+    // return this.cards.filter((card) => card['gantt']['isEnable'] === status).orderBy('position');
+    return this.cards.orderBy('position');
+  }
 
   getMembershipModelForUser(userId) {
     return this.memberships
