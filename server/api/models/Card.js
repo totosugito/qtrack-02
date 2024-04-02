@@ -45,7 +45,8 @@ module.exports = {
             type: 'json',
             defaultsTo: {
                 isEnable: false,
-                progress: 0.0
+                progress: 0.0,
+				pred : []
             }
         },
         cost: {
