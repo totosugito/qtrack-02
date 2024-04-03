@@ -122,7 +122,7 @@ const StopwatchEditStep = React.memo(({ defaultValue, onUpdate, onBack, onClose 
                 name="hours"
                 value={data.hours}
                 mask="9999"
-                maskChar={null}
+                // maskChar={null}
                 disabled={!isEditing}
                 onChange={handleFieldChange}
               />
@@ -134,7 +134,7 @@ const StopwatchEditStep = React.memo(({ defaultValue, onUpdate, onBack, onClose 
                 name="minutes"
                 value={data.minutes}
                 mask="99"
-                maskChar={null}
+                // maskChar={null}
                 disabled={!isEditing}
                 onChange={handleFieldChange}
               />
@@ -146,7 +146,7 @@ const StopwatchEditStep = React.memo(({ defaultValue, onUpdate, onBack, onClose 
                 name="seconds"
                 value={data.seconds}
                 mask="99"
-                maskChar={null}
+                // maskChar={null}
                 disabled={!isEditing}
                 onChange={handleFieldChange}
               />

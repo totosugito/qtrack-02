@@ -5,27 +5,17 @@ import {Button, Checkbox, Dropdown, Form} from 'semantic-ui-react';
 import {Input, Popup} from '../../lib';
 import styles from './index.module.scss';
 
-const GanttCardLabelStep = React.memo(({defaultValue, onUpdate, onBack, onClose}) => {
+const GanttCardLabelStep = React.memo(({defaultValue, onUpdate, onBack, onClose, ganttCards}) => {
   const [t] = useTranslation();
   const [isEnable, setIsEnable] = useState(defaultValue.isEnable)
   const [progress, setProgress] = useState(defaultValue.progress)
-  const stateOptions = [
-    {
-      key: 1,
-      text: 'First',
-      value: 'first'
-    },
-    {
-      key: 2,
-      text: 'Second',
-      value: 'second'
-    }
-  ]
+  const [pred, setPred] = useState(defaultValue.pred ?? [])
 
   const handleSubmit = () => {
     const cleanData = {
       isEnable: isEnable,
-      progress: progress*1.0
+      progress: progress*1.0,
+      pred: pred
     }
     onUpdate(cleanData);
     onClose();
@@ -45,7 +35,6 @@ const GanttCardLabelStep = React.memo(({defaultValue, onUpdate, onBack, onClose}
     }
   }
 
-  const [pred, setPred] = useState([])
   const handleChangePred = (e, { value }) => {
     setPred(value)
   }
@@ -79,7 +68,7 @@ const GanttCardLabelStep = React.memo(({defaultValue, onUpdate, onBack, onClose}
                 fluid
                 multiple
                 onChange={handleChangePred}
-                options={stateOptions}
+                options={ganttCards}
                 placeholder='State'
                 selection
                 value={pred}

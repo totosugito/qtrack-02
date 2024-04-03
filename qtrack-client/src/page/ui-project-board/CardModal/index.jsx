@@ -40,11 +40,10 @@ import GanttCardLabelStep from "../../../view/GanttCardLabelStep";
 import CostStep from "./CostStep";
 import CostLabel from "./CostLabel";
 import CardModeStep from "./CardModeStep";
-import {makeSelectCardByBoardId, selectCardByBoardId} from "../../../redux/selectors/lists";
-import {selectCardsForCurrentBoard, selectCardsForCurrentBoardWithGanttEnable} from "../../../redux/selectors/boards";
 
 const CardModal = React.memo(
   ({
+     ganttCards,
      gantt,
      cost,
      name,
@@ -525,7 +524,7 @@ const CardModal = React.memo(
                     {t('common.attachment')}
                   </Button>
                 </AttachmentAddPopup>
-                <GanttPopup defaultValue={gantt} onUpdate={handleGanttUpdate}>
+                <GanttPopup defaultValue={gantt} onUpdate={handleGanttUpdate} ganttCards={ganttCards}>
                   <Button fluid className={styles.actionButton}>
                     <Icon name="calendar alternate outline" className={styles.actionIcon}/>
                     {t('common.gantt')} {gantt.isEnable ? ("( " + gantt.progress + "% )") : ""}
@@ -697,7 +696,18 @@ const mapStateToProps = (state) => {
   const activities = selectors.selectActivitiesForCurrentCard(state);
 
   const cardsInBoard = selectors.selectCardsForCurrentBoardWithGanttEnable(state);
-  console.log(JSON.stringify(cardsInBoard))
+  let ganttCards = [];
+  for(let i=0; i<cardsInBoard.length; i++) {
+    let card_ = cardsInBoard[i];
+    if((card_['id'] === id) || (card_['gantt']['isEnable'] === false)) {
+      continue;
+    }
+    ganttCards.push({
+      key: i,
+      value: card_['id'],
+      text: card_['name']
+    })
+  }
 
   let isCurrentUserEditor = false;
   let isCurrentUserEditorOrCanComment = false;
@@ -708,6 +718,7 @@ const mapStateToProps = (state) => {
   }
 
   return {
+    ganttCards,
     gantt,
     cost,
     name,

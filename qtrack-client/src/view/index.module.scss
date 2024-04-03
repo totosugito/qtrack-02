@@ -29,6 +29,17 @@
     }
   }
 
+  .appBarToolbarHasBg{
+    padding-left: 3px;
+    padding-top: 3px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .appBarToolbarNoBg {
+    padding-left: 3px;
+    padding-top: 3px;
+    background: rgba($appBarBgColor, 0.8);
+  }
+
   .appBarBoardActionHasBg {
     background: rgba(0, 0, 0, 0.3);
   }

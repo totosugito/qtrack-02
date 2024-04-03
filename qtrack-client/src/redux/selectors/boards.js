@@ -198,12 +198,14 @@ export const selectCardsForCurrentBoardWithGanttEnable = createSelector(
         return boardModel
             .getCardsByGanttEnable(true)
             .toRefArray()
-            .map((list) => {
+            .map((card_) => {
                 return (
                     {
-                      id: list.id,
-                      name: list.name,
-                      gantt: list.gantt
+                      id: card_.id,
+                      name: card_.name,
+                      gantt: card_.gantt,
+                      startDate: card_.startDate,
+                      dueDate: card_.dueDate
                     }
                 )
             });

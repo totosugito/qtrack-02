@@ -184,7 +184,7 @@ export default class extends BaseModel {
   }
   getCardsByGanttEnable(status) {
     // return this.cards.filter((card) => card['gantt']['isEnable'] === status).orderBy('position');
-    return this.cards.orderBy('position');
+    return this.cards.orderBy('listId');
   }
 
   getMembershipModelForUser(userId) {
