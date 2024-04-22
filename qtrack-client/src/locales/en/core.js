@@ -184,8 +184,7 @@ export default {
       cardMode: 'Card Mode',
       importExcelFile: 'Import Excel File',
       tags: 'Project tags',
-      filterByTags: 'Filter by tags',
-      predecessor: "Predecessor"
+      filterByTags: 'Filter by tags'
     },
 
     action: {

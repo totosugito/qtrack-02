@@ -41,7 +41,7 @@ import Paths from "../../../constants/Paths";
 import {LTT} from "../../../lib/external";
 
 registerLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWGhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEZiWH1ZcHdQRWJZWE12Xg==");
-const GanttViewer = React.memo(({project, boardId, gantt}) => {
+const GanttViewer = React.memo(({boardId, gantt}) => {
   const [t] = useTranslation();
   let ganttChart;
   const [gantt1, setGantt1] = useState(gantt)
@@ -90,14 +90,9 @@ const GanttViewer = React.memo(({project, boardId, gantt}) => {
     timelineUnitSize: 100,
     timelineViewMode: 'Month'
   };
-
-  const hasBg = () => {
-    return (project && project.background)
-  }
-
   return (
     <div>
-      <div className={classNames(stylesView.toolbarBoardContainer, hasBg() ? stylesView.appBarToolbarHasBg : stylesView.appBarToolbarNoBg)}>
+      <div className={stylesView.toolbarBoardContainer}>
         <div className={stylesView.toolbarItemContainer}>
 
           <div className={stylesView.toolbarItemSmall}>
@@ -192,50 +187,42 @@ GanttViewer.propTypes = {
   gantt: PropTypes.array.isRequired
 };
 
-const updateGanttPred = (gantt_, mapIds_) => {
-  let pred_ = gantt_['pred']
-  let idxIds = []
-  for (let i = 0; i < pred_.length; i++) {
-    let idx = mapIds_[pred_[i]]
-    if (idx === undefined) {
-      continue
-    }
-    idxIds.push(idx.toString())
-  }
-  gantt_['Predecessor'] = idxIds.join(',');
-}
 const mapStateToProps = (state) => {
-  const project = selectors.selectCurrentProject(state);
-  const cardsInBoard = selectors.selectCardsForCurrentBoardWithGanttEnable(state);
+  const listIds = selectors.selectListIdsForCurrentBoard(state);
+  const selectListById = selectors.makeSelectListById();
+  const selectCardForGanttByListId = selectors.makeSelectCardForGanttByListId();
 
   let taskId = 1
   const gantt = []
-  let mapIds = {}
-  for(let i=0; i<cardsInBoard.length; i++) {
-    let card_ = cardsInBoard[i];
-    if (card_['gantt']['isEnable'] === false) {
-      continue;
+
+  // -----------------------------
+  // loop list over board
+  // -----------------------------
+  listIds.forEach((id) => {
+    const objList = selectListById(state, id)
+    id = objList.id
+
+    // -----------------------------
+    // loop card over list
+    // -----------------------------
+    const cards = selectCardForGanttByListId(state, id)
+    for (let i = 0; i < cards.length; i++) {
+      let card = cards[i]
+      if (!card.gantt.isEnable)
+        continue
+
+      gantt.push({
+        TaskId: taskId,
+        TaskName: card.name,
+        StartDate: card.startDate,
+        DueDate: card.dueDate,
+        Progress: card.gantt.progress
+      })
+
+      taskId = taskId + 1
     }
-
-    gantt.push({
-      TaskId: taskId,
-      TaskName: card_.name,
-      StartDate: card_.startDate,
-      DueDate: card_.dueDate,
-      Progress: card_.gantt.progress,
-      Predecessor: "",
-      pred: card_.gantt.pred
-    })
-    mapIds[card_.id] = taskId;
-    taskId = taskId + 1
-  }
-
-  // update Predecessor
-  for(let i=0; i<gantt.length; i++) {
-    updateGanttPred(gantt[i], mapIds)
-  }
+  })
   return ({
-    project,
     gantt
   })
 }

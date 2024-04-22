@@ -43,7 +43,6 @@ import CardModeStep from "./CardModeStep";
 
 const CardModal = React.memo(
   ({
-     ganttCards,
      gantt,
      cost,
      name,
@@ -524,7 +523,7 @@ const CardModal = React.memo(
                     {t('common.attachment')}
                   </Button>
                 </AttachmentAddPopup>
-                <GanttPopup defaultValue={gantt} onUpdate={handleGanttUpdate} ganttCards={ganttCards}>
+                <GanttPopup defaultValue={gantt} onUpdate={handleGanttUpdate}>
                   <Button fluid className={styles.actionButton}>
                     <Icon name="calendar alternate outline" className={styles.actionIcon}/>
                     {t('common.gantt')} {gantt.isEnable ? ("( " + gantt.progress + "% )") : ""}
@@ -673,7 +672,6 @@ const mapStateToProps = (state) => {
   const currentUserMembership = selectors.selectCurrentUserMembershipForCurrentBoard(state);
 
   const {
-    id,
     gantt,
     cost,
     name,
@@ -695,20 +693,6 @@ const mapStateToProps = (state) => {
   const attachments = selectors.selectAttachmentsForCurrentCard(state);
   const activities = selectors.selectActivitiesForCurrentCard(state);
 
-  const cardsInBoard = selectors.selectCardsForCurrentBoardWithGanttEnable(state);
-  let ganttCards = [];
-  for(let i=0; i<cardsInBoard.length; i++) {
-    let card_ = cardsInBoard[i];
-    if((card_['id'] === id) || (card_['gantt']['isEnable'] === false)) {
-      continue;
-    }
-    ganttCards.push({
-      key: i,
-      value: card_['id'],
-      text: card_['name']
-    })
-  }
-
   let isCurrentUserEditor = false;
   let isCurrentUserEditorOrCanComment = false;
 
@@ -718,7 +702,6 @@ const mapStateToProps = (state) => {
   }
 
   return {
-    ganttCards,
     gantt,
     cost,
     name,

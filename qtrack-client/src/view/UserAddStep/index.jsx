@@ -19,23 +19,36 @@ const createMessage = (error) => {
         return error;
     }
 
-    switch (error.message) {
-        case 'Email already in use':
-            return {
-                type: 'error',
-                content: 'common.emailAlreadyInUse',
-            };
-        case 'Username already in use':
-            return {
-                type: 'error',
-                content: 'common.usernameAlreadyInUse',
-            };
-        default:
-            return {
-                type: 'warning',
-                content: 'common.unknownError',
-            };
-    }
+  switch (error.code) {
+    case 'E_CONFLICT':
+      return {
+        type: 'error',
+        content: error.message,
+      };
+    default:
+      return {
+        type: 'warning',
+        content: error.message,
+      };
+  }
+
+    // switch (error.message) {
+    //     case 'Email already in use':
+    //         return {
+    //             type: 'error',
+    //             content: 'common.emailAlreadyInUse',
+    //         };
+    //     case 'Username already in use':
+    //         return {
+    //             type: 'error',
+    //             content: 'common.usernameAlreadyInUse',
+    //         };
+    //     default:
+    //         return {
+    //             type: 'warning',
+    //             content: 'common.unknownError',
+    //         };
+    // }
 };
 
 const UserAddStep = React.memo(

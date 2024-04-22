@@ -19,7 +19,6 @@ import entryActions from "../../redux/entry-actions";
 import {connect} from "react-redux";
 import ProjectSettingsModal from "../ProjectSettingsModal";
 import ModalTypes from "../../constants/ModalTypes";
-import stylesView from "../index.module.scss";
 
 const BoardToolbar = React.memo(({
                                    project,
@@ -122,7 +121,7 @@ const BoardToolbar = React.memo(({
   }
 
   return (
-    <div className={hasBg() ? stylesView.appBarToolbarHasBg : stylesView.appBarToolbarNoBg}>
+    <div className={hasBg() ? styles.toolbarHasBg : styles.toolbarHasNoBg}>
       <div className={styles.wrapper} onWheel={handleWheel}>
         <div ref={tabsWrapper} className={styles.tabsWrapper}>
           <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>

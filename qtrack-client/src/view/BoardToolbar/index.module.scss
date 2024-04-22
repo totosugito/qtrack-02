@@ -1,5 +1,16 @@
 :global(#app) {
   @import "../../assets/theme/theme";
+  .toolbarHasBg{
+    padding-left: 3px;
+    padding-top: 3px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .toolbarHasNoBg {
+    padding-left: 3px;
+    padding-top: 3px;
+    background: rgba($appBarBgColor, 0.8);
+  }
+
   .addButton {
     background: transparent;
     color: #fff;

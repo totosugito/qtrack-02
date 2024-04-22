@@ -46,7 +46,7 @@ module.exports = {
             defaultsTo: {
                 isEnable: false,
                 progress: 0.0,
-				pred : []
+                pred : []
             }
         },
         cost: {

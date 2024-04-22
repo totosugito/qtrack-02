@@ -12,7 +12,7 @@ import stylesView from "../../view/index.module.scss";
 import {Link} from "react-router-dom";
 import Paths from "../../constants/Paths";
 
-function UiBoardReport({project, board}) {
+function UiBoardReport({board}) {
   const theme = useTheme();
   const [t] = useTranslation();
 
@@ -45,16 +45,11 @@ function UiBoardReport({project, board}) {
     );
   }
 
-  const hasBg = () => {
-    return (project && project.background)
-  }
-
   return (
     <>
       <BaseProject>
         <>
-          <div
-            className={classNames(stylesView.toolbarBoardContainer, hasBg() ? stylesView.appBarToolbarHasBg : stylesView.appBarToolbarNoBg)}>
+          <div className={stylesView.toolbarBoardContainer}>
             <div className={stylesView.toolbarItemContainer}>
               <div className={stylesView.toolbarItemSmall}>
                 <div className={classNames(stylesView.toolbarButton)}>
@@ -78,10 +73,8 @@ function UiBoardReport({project, board}) {
 }
 
 const mapStateToProps = (state) => {
-  const project = selectors.selectCurrentProject(state);
   const board = selectors.selectCurrentBoard(state);
   return {
-    project,
     board: board,
   }
 }
