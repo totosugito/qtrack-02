@@ -80,6 +80,11 @@ module.exports = {
             'subscribeToOwnCards',
         ])
 
+        const userExistByEmail = await sails.helpers.users.getOneByEmail(values['email'])
+        if (userExistByEmail) {
+            throw Errors.EMAIL_ALREADY_IN_USE
+        }
+
         const user = await sails.helpers.users.createOne
             .with({
                 values,
