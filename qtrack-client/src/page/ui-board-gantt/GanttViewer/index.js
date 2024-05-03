@@ -111,13 +111,13 @@ const GanttViewer = React.memo(({project, boardId, gantt}) => {
             </div>
           </div>
 
-          <div className={stylesView.toolbarItemSmall}>
-            <div className={classNames(stylesView.toolbarButton)}>
-              <input id="files" type="file" name="file" className="custom-file-input"
-                     required onChange={handleImport}
-                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
-            </div>
-          </div>
+          {/*<div className={stylesView.toolbarItemSmall}>*/}
+          {/*  <div className={classNames(stylesView.toolbarButton)}>*/}
+          {/*    <input id="files" type="file" name="file" className="custom-file-input"*/}
+          {/*           required onChange={handleImport}*/}
+          {/*           accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
 
           <div className={stylesView.toolbarItemSmall}>
             <div className={classNames(stylesView.toolbarButton)}

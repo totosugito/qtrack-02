@@ -2,8 +2,6 @@
 
 services:
     sails_app:
-        container_name: qtrack-02_sails_app_1
-        cpus: 10
         build:
             context: .
             dockerfile: Dockerfile
@@ -28,7 +26,6 @@ services:
         tty: true
 
     mongo_docker:
-        container_name: qtrack-02_mongo_docker_1
         image: mongo:4.4.6
         restart: on-failure
         env_file: ./server/.env

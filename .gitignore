@@ -4,6 +4,7 @@
 server/node_modules
 server/.tmp
 server/package-lock.json
+server/private/*
 
 
 ## client
